@@ -7,11 +7,12 @@
  */
 class LoginForm extends CFormModel
 {
-	public $username;
+	public $email;
 	public $password;
 	public $rememberMe;
-
+	public $status;
 	private $_identity;
+	public $type;
 
 	/**
 	 * Declares the validation rules.
@@ -22,11 +23,12 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+            array('email','email', 'allowEmpty' => false),
+            array('password', 'required'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
-			array('password', 'authenticate'),
+			//array('password', ''),
 		);
 	}
 
@@ -46,9 +48,9 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->_identity=new UserIdentity($this->username,$this->password);
+		$this->_identity=new UserIdentity($this->email,$this->password);
 		if(!$this->_identity->authenticate())
-			$this->addError('password','Incorrect username or password.');
+			$this->addError('password','Incorrect email or password.');
 	}
 
 	/**
@@ -57,18 +59,96 @@ class LoginForm extends CFormModel
 	 */
 	public function login()
 	{
-		if($this->_identity===null)
-		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			$this->_identity->authenticate();
-		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
-		{
-			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Yii::app()->user->login($this->_identity,$duration);
-			return true;
-		}
-		else
-			return false;
+        if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity($this->email,$this->password);
+            $this->_identity->authenticate();
+        }
+        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        {
+            
+            if(!$this->_identity->status)
+            {
+                $this->addError('status',"I’m sorry but you haven’t verified your email address.<a href='".Yii::app()->createUrl('user/auth/verify')."'/>Click here</a> if you want to send the verification message again");
+                return false;
+            }
+            elseif($this->_identity->status == 2)
+            {
+                $this->addError('status',"I’m sorry but your account is suspended, <a href='".Yii::app()->createUrl('')."'/>Click here</a> to get in touch with the site administrator");
+                return false;
+            }
+            
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->user->login($this->_identity,$duration);
+            return true;
+        }
+        elseif($this->_identity->errorCode === UserIdentity::ERROR_USERNAME_INVALID)
+        {
+            $this->addError('email', 'I’m sorry but I can’t find your email in our database. Would you like to publish your work on our website? <a href="'. Yii::app()->createUrl('/user/signup').'">Click here</a> to create an acccount!');
+        }
+        else
+        {
+            $this->addError('password', 'Password is not invail');
+        }
+        
+            return false;
 	}
+
+	/**
+	 * only administrator login
+	 * @return [type] [description]
+	 */
+	public function loginAdmin()
+	{
+		if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity($this->email,$this->password);
+            $this->_identity->authenticate();
+        }
+        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        {
+            if($this->_identity->type)
+            {
+            	$this->addError('','You have no permission');
+            	return false;
+            }
+            
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->adminUser->login($this->_identity,$duration);
+            return true;
+        }
+        elseif($this->_identity->errorCode === UserIdentity::ERROR_USERNAME_INVALID)
+        {
+            $this->addError('email', 'I’m sorry but I can’t find your email in our database');
+        }
+        else
+        {
+            $this->addError('password', 'Password is not invail');
+        }
+        
+            return false;
+	}
+
+    /**
+     * [loginAsUser description]
+     * @return [type] [description]
+     */
+    public function loginAsUser($id)
+    {
+        if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity('','');
+            $this->_identity->authenticateAsUser((int)$id);
+        }
+        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        {
+            
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->user->login($this->_identity,$duration);
+            
+            return true;
+        }
+
+        return false;
+    }
 }

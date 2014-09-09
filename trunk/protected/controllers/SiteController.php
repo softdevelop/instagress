@@ -97,7 +97,6 @@ class SiteController extends Controller
 
 	public function actionIndex() 
 	{
-		//echo "<pre>"; print_r(Yii::app()->thumb);die('123');
 		$this->render('index');
 	}
 
