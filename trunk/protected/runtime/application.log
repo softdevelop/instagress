@@ -526,3 +526,34 @@ Stack trace:
 #9 {main}
 REQUEST_URI=/
 ---
+2014/09/05 11:25:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin')
+#1 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Volumes/WORK/htdocs/team/yii/instagress/trunk/index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/admin
+---
+2014/09/05 11:25:28 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.email" is not defined.' in /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/helpers/CHtml.php(2529): CComponent->__get('email')
+#1 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/helpers/CHtml.php(2252): CHtml::resolveValue(Object(LoginForm), 'email')
+#2 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/helpers/CHtml.php(1434): CHtml::activeInputField('text', Object(LoginForm), 'email', Array)
+#3 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/widgets/CActiveForm.php(725): CHtml::activeTextField(Object(LoginForm), 'email', Array)
+#4 /Volumes/WORK/htdocs/team/yii/instagress/trunk/protected/modules/admin/views/login/login.php(9): CActiveForm->textField(Object(LoginForm), 'email')
+#5 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CBaseController.php(126): require('/Volumes/WORK/h...')
+#6 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CBaseController.php(95): CBaseController->renderInternal('/Volumes/WORK/h...', Array, true)
+#7 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CController.php(869): CBaseController->renderFile('/Volumes/WORK/h...', Array, true)
+#8 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CController.php(782): CController->renderPartial('login', Array, true)
+#9 /Volumes/WORK/htdocs/team/yii/instagress/trunk/protected/modules/admin/controllers/LoginController.php(42): CController->render('login', Array)
+#10 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/actions/CInlineAction.php(49): LoginController->actionIndex()
+#11 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#12 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#13 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CWebApplication.php(282): CController->run('')
+#15 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/login')
+#16 /Volumes/WORK/htdocs/team/yii/instagress/trunk/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /Volumes/WORK/htdocs/team/yii/instagress/trunk/index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/admin/login
+---
