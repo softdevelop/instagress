@@ -70,6 +70,9 @@ return array(
                 'transportType'=>'php',
                 'viewPath' => 'application.views.mail',             
         ),
+        'instagram' => array(
+            'class' => 'ext.instagram.Instagram',            
+        )
 		
     ),
     

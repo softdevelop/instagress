@@ -6,7 +6,7 @@
  */
 class FController extends Controller 
 {
-
+	
     /**
      * @var string the default layout for the controller view. Defaults to 'column1',
      * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
