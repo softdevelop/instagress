@@ -7,7 +7,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Instagress site',
     // preloading 'log' component
-    'preload' => array('log'),
+    'preload' => array('log', 'instagram'),
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -71,7 +71,11 @@ return array(
                 'viewPath' => 'application.views.mail',             
         ),
         'instagram' => array(
-            'class' => 'ext.instagram.Instagram',            
+            'class' => 'ext.instagram.Instagram',
+            '_apikey' => 'db64ea18e8394b63b6c4309250b4ea6a',
+            '_apisecret' => '1e672be29aab4d2e88a79f3dc8919eee',
+            '_callbackurl' => 'http://instagress.me/site/success'
+               
         )
 		
     ),

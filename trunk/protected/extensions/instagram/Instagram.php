@@ -13,11 +13,6 @@
  */
 class Instagram extends CApplicationComponent {
 
-  private $_config = array(
-                'apiKey'      => 'db64ea18e8394b63b6c4309250b4ea6a',
-                'apiSecret'   => '1e672be29aab4d2e88a79f3dc8919eee',
-                'apiCallback' => 'http://localhost/instagram/Instagram-PHP-API-master/example/success.php' // must point to success.php
-            );
   /**
    * The API base URL
    */
@@ -38,21 +33,21 @@ class Instagram extends CApplicationComponent {
    * 
    * @var string
    */
-  private $_apikey;
+  public $_apikey;
 
   /**
    * The Instagram OAuth API secret
    * 
    * @var string
    */
-  private $_apisecret;
+  public $_apisecret;
 
   /**
    * The callback URL
    * 
    * @var string
    */
-  private $_callbackurl;
+  public $_callbackurl;
 
   /**
    * The user access token
@@ -82,19 +77,13 @@ class Instagram extends CApplicationComponent {
    * @return void
    */
   public function __construct() {
-    if (true === is_array($this->_config)) {
-      // if you want to access user data
-      $this->setApiKey($this->_config['apiKey']);
-      $this->setApiSecret($this->_config['apiSecret']);
-      $this->setApiCallback($this->_config['apiCallback']);
-    } else if (true === is_string($this->_config)) {
-      // if you only want to access public data
-      $this->setApiKey($this->_config);
-    } else {
-      throw new Exception("Error: __construct() - Configuration data is missing.");
-    }
+    
   }
 
+  public function getConfig()
+  {
+    return $this->config;
+  }
   /**
    * Generates the OAuth login URL
    *
