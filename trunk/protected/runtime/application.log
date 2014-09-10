@@ -2052,3 +2052,193 @@ Stack trace:
 REQUEST_URI=/site/assets/instagram-big.png
 HTTP_REFERER=http://instagress.me/site/login
 ---
+2014/09/10 09:39:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(270): CController->missingAction('assets')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/ins...')
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/assets/instagram-big.png
+HTTP_REFERER=http://instagress.me/site/login
+---
+2014/09/10 09:58:40 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:425
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(152): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('index')
+#12 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like/index')
+#13 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like/index
+---
+2014/09/10 09:59:28 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:425
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(152): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('index')
+#12 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like/index')
+#13 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like/index
+---
+2014/09/10 09:59:30 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:425
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(152): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('index')
+#12 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like/index')
+#13 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like/index
+---
+2014/09/10 10:16:10 [error] [exception.CException] exception 'CException' with message 'LikeController cannot find the requested view "like".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:878
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(782): CController->renderPartial('like', Array, true)
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\protected\controllers\LikeController.php(44): CController->render('like', Array)
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('index')
+#12 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like/index')
+#13 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like/index
+---
+2014/09/10 10:16:21 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\2014-09\instagress\trunk\themes\frontend\views\like\index.php:25)
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(869): LikeController->renderFile()
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(782): LikeController->renderPartial()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\protected\controllers\LikeController.php(44): LikeController->render()
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): LikeController->runAction()
+#6 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): LikeController->filterAccessControl()
+#9 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#10 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(265): LikeController->runActionWithFilters()
+#12 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): LikeController->run()
+#13 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CWebApplication->run()
+REQUEST_URI=/like/index
+2014/09/10 11:00:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/style.css".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('css/style.css')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/style.css
+HTTP_REFERER=http://instagress.me/like/index
+---
+2014/09/10 11:03:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/style.css".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('css/style.css')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/style.css
+HTTP_REFERER=http://instagress.me/like/index
+---
+2014/09/10 11:16:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "like".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(270): CController->missingAction('like')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('like')
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like/like')
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/like/like
+HTTP_REFERER=http://instagress.me/like/index
+---
+2014/09/10 11:24:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(270): CController->missingAction('assets')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/ins...')
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/assets/instagram-big.png
+HTTP_REFERER=http://instagress.me/site/login
+---
+2014/09/10 11:37:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(270): CController->missingAction('assets')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/ins...')
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/assets/instagram-big.png
+HTTP_REFERER=http://instagress.me/site/login
+---
+2014/09/10 11:42:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/site/login".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/site/login')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/user/site/login
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/10 11:42:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/site/index".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/site/index')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/user/site/index
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/10 11:42:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assets".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CController.php(270): CController->missingAction('assets')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('assets')
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('site/assets/ins...')
+#3 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/assets/instagram-big.png
+HTTP_REFERER=http://instagress.me/site/login
+---

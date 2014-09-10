@@ -77,13 +77,9 @@ class Instagram extends CApplicationComponent {
    * @return void
    */
   public function __construct() {
-    
+    $this->_accesstoken = $this->getAccessToken();
   }
-
-  public function getConfig()
-  {
-    return $this->config;
-  }
+  
   /**
    * Generates the OAuth login URL
    *
@@ -500,7 +496,11 @@ class Instagram extends CApplicationComponent {
    * @return string
    */
   public function getAccessToken() {
-    return $this->_accesstoken;
+    $user = User::model()->find('id=:id', array(':id' => Yii::app()->user->id)); 
+    if ($user) 
+      return $user->access_token;
+
+    return null;
   }
 
   /**
