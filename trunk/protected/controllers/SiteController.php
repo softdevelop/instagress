@@ -5,6 +5,34 @@ class SiteController extends Controller
 	public $layout='column2';
 
 	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all users to access 'index' and 'view' actions.
+				'actions' => array('index', 'login'),
+				'users' => array('*'),
+			),
+			array('deny',  // deny all users
+				'actions' => array('login'),
+				'users' => array('@'),
+			),
+		);
+	}
+	/**
 	 * Declares class-based actions.
 	 */
 	public function actions()
@@ -61,7 +89,9 @@ class SiteController extends Controller
 	 * Displays the login page
 	 */
 	public function actionLogin()
-	{		
+	{
+		if (Yii::app()->user->id)
+			$this->redirect('/site/index');		
 		$instagram = Yii::app()->instagram;
 		$loginUrl = $instagram->getLoginUrl();
 
@@ -69,35 +99,63 @@ class SiteController extends Controller
 			'loginUrl'=>$loginUrl,
 
 		));
-		// if (!defined('CRYPT_BLOWFISH')||!CRYPT_BLOWFISH)
-		// 	throw new CHttpException(500,"This application requires that PHP was compiled with Blowfish support for crypt().");
-
-		// $model = new LoginForm;
-
-		// // if it is ajax validation request
-		// if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		// {
-		// 	echo CActiveForm::validate($model);
-		// 	Yii::app()->end();
-		// }
-
-		// // collect user input data
-		// if(isset($_POST['LoginForm']))
-		// {
-		// 	$model->attributes = $_POST['LoginForm'];
-		// 	// validate user input and redirect to the previous page if valid
-		// 	if($model->validate() && $model->login())
-		// 		$this->redirect(Yii::app()->user->returnUrl);
-		// }
-		// // display the login form
-		// $this->render('login',array('model'=>$model));
 	}
 	/**
 	 * running when login success
 	 */
 	public function actionSuccess()
 	{
-		
+
+		$instagram = Yii::app()->instagram;
+		// receive OAuth code parameter
+		$code = $_GET['code'];
+
+		// check whether the user has granted access
+		if (isset($code)) {
+		  	// receive OAuth token object
+		  	$data = $instagram->getOAuthToken($code);
+		  	$username  = $data->user->username;
+		  	$user_id = $data->user->id;
+		  
+		 	// store user access token
+		  	$instagram->setAccessToken($data);
+
+		  	// now you have access to all authenticated user methods
+		  	$result = $instagram->getUserMedia();
+		  	if ($data)
+		  	{
+		  		// save this information to db
+			  	$user = new User('instagram_login');
+			  	$user->username = $username;
+			  	$user->instagram_id = $data->user->id;
+			  	$user->access_token = $instagram->getAccessToken($data);
+			  	$user->full_name = $data->user->full_name;	
+
+			  	// check if instagram_id is unique then save to db
+			  	$user = $user->leoUnique();
+
+  			  	// login and redirect to home page
+		  		Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id),0);
+		  		$this->redirect('/site/index');
+		  	}
+		  	else
+		  	{
+		  		throw new CHttpException('There are some issues with login on instagram.');
+		  	}
+
+		} else {
+
+		  	// check whether an error occurred
+		  	if (isset($_GET['error'])) {
+		    	echo 'An error occurred: ' . $_GET['error_description'];
+		  	}
+
+		}
+
+		$this->render('success', array(
+			'result' => $result,
+			'username' => $username
+		));
 	}
 	/**
 	 * Logs out the current user and redirect to homepage.

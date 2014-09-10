@@ -22,9 +22,9 @@ class UserIdentity extends CUserIdentity
     /**
      * Contructor
      */
-    public function __construct($email, $password)
+    public function __construct($username, $password)
     {
-        $this->email = $email;
+        $this->username = $username;
         $this->password = $password;
     }
     /**
@@ -33,7 +33,7 @@ class UserIdentity extends CUserIdentity
      */
     public function authenticate() 
     {
-        $user = User::model()->find('LOWER(email)=?', array(strtolower($this->email)));
+        $user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
         if ($user === null)
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         else if (!$user->validatePassword($this->password))
@@ -41,9 +41,10 @@ class UserIdentity extends CUserIdentity
         else {
             $this->type      = $user->type;
             $this->_id       = $user->id;
-            $this->email     = $user->email;
+            $this->username     = $user->username;
             $this->status    = $user->status;
             $this->setState('status', $user->status);
+            $this->setState('username', $user->username);
 
             // Set role for admin
             if(!$this->type)
@@ -71,7 +72,7 @@ class UserIdentity extends CUserIdentity
         else {
             $this->type      = $user->type;
             $this->_id       = $user->id;
-            $this->email     = $user->email;
+            $this->username     = $user->username;
             $this->status    = $user->status;
             $this->setState('status', $user->status);
             $this->errorCode = self::ERROR_NONE;
@@ -86,5 +87,14 @@ class UserIdentity extends CUserIdentity
     {
         return $this->_id;
     }
-
+    /**
+     * using to login automatically
+     * @return identity
+     */  
+    public static function createAuthenticatedIdentity($username, $id) {
+        $identity = new self($username, '');
+        $identity->_id = $id;
+        $identity->errorCode = self::ERROR_NONE;
+        return $identity;
+    }
 }

@@ -43,20 +43,24 @@ class User extends CActiveRecord {
      */
     public function rules() 
     {
+
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
+            array('access_token, full_name, instagram_id, username', 'required', 'on' => 'instagram_login'),
+            //array('instagram_id', 'leoUnique', 'on' => 'instagram_login'),
             array('status, type', 'numerical', 'integerOnly'=>true),
-            array('firstname, lastname, email', 'length', 'max'=>255),
+            array('email', 'length', 'max'=>255),
             array('password, hash', 'length', 'max'=>40),
             array('created, modified', 'safe'),
-            array('email', 'email', 'allowEmpty' => false),
+            array('email', 'email', 'allowEmpty' => false, 'except' => 'instagram_login'),
             array('email', 'unique'),
-            array('firstname, lastname', 'required'),
-            array('password', 'required'),
+            array('password', 'required', 'except' => 'instagram_login'),
             array('password', 'length', 'min' => 6),
             array('password', 'compare', 'compareAttribute'=>'repassword'),
-            array('firstname, lastname, email, password, hash, status, type, created, modified', 'safe', 'on'=>'search'),
+           
+            array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified', 'safe', 'on'=>'search'),
+            
         );
     }
 
@@ -114,7 +118,7 @@ class User extends CActiveRecord {
 	protected function beforeSave()
 	{
 		if(parent::beforeSave()){
-			$this->password =md5($this->password);
+			$this->password = md5($this->password);
 			return $this->password;
 		}
 		return false;
@@ -129,5 +133,16 @@ class User extends CActiveRecord {
 			),
 		);
 	}
+
+    public function leoUnique()
+    {
+        $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
+        if (!isset($user))
+        {
+            $this->save();
+            return $this;
+        }          
+        return $user;
+    }
 
 }
