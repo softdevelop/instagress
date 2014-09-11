@@ -46,6 +46,7 @@ return array(
             'urlFormat' => 'path',
             'showScriptName'=>false,
             'rules' => array(
+                 '<module:\w+>/<controller:\w+>/<action:\w+>/<id:-?\d+>/<name:.*>'=>'<module>/<controller>/<action>',
                 'post/<id:\d+>/<title:.*?>'=>'post/view',
                 'posts/<tag:.*?>'=>'post/index',
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

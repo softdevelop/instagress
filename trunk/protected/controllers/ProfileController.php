@@ -44,8 +44,8 @@
 			$media = $instagram->getUserMedia($user->instagram_id);
 		
 			$this->render('index', array(
-				'user_info' => $user_info,
-				'medias' => $media->data
+				'user_info' => @$user_info,
+				'medias' => @$media->data
 			));
 		}
 	}

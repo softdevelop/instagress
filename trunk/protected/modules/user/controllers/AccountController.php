@@ -26,10 +26,9 @@ class AccountController extends FController
      */
     public function actionIndex()
     {
-        $company = Company::model()->findByAttributes(array('user_id' => Yii::app()->user->id));
         $this->render('index', array(
-                'company' => $company
-            ));
+
+        ));
     }
 
     /**
@@ -74,6 +73,17 @@ class AccountController extends FController
         $this->render('edit', array(
             'model' => $model
         ));
+    }
+
+
+    public function actionAdd() {
+        
+        $instagram = Yii::app()->instagram;
+        $loginUrl = $instagram->getLoginUrl();
+
+        $this->render('//site/login', array(
+            'loginUrl'=>$loginUrl,
+        ));        
     }
 
 }

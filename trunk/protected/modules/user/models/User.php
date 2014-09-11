@@ -48,17 +48,8 @@ class User extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('access_token, full_name, instagram_id, username', 'required', 'on' => 'instagram_login'),
-            //array('instagram_id', 'leoUnique', 'on' => 'instagram_login'),
-            array('status, type', 'numerical', 'integerOnly'=>true),
-            array('email', 'length', 'max'=>255),
-            array('password, hash', 'length', 'max'=>40),
-            array('created, modified', 'safe'),
-            array('email', 'email', 'allowEmpty' => false, 'except' => 'instagram_login'),
             array('email', 'unique'),
-            array('password', 'required', 'except' => 'instagram_login'),
-            array('password', 'length', 'min' => 6),
-            array('password', 'compare', 'compareAttribute'=>'repassword'),
-           
+            array('password, email', 'required', 'except' => 'instagram_login'),           
             array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified', 'safe', 'on'=>'search'),
             
         );
@@ -72,7 +63,7 @@ class User extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'company' => array(self::HAS_ONE, 'Company', 'user_id')
+            'child' => array(self::HAS_MANY, 'UserChild', 'user_id')
         );
     }
 
@@ -117,14 +108,14 @@ class User extends CActiveRecord {
 
 	protected function beforeSave()
 	{
-		if(parent::beforeSave()){
+		if(parent::beforeSave()) {
 			$this->password = md5($this->password);
 			return $this->password;
 		}
 		return false;
 	}
 
-	public function behaviors(){
+	public function behaviors() {
 		return array(
 			'CTimestampBehavior' => array(
 				'class' => 'zii.behaviors.CTimestampBehavior',
@@ -134,15 +125,27 @@ class User extends CActiveRecord {
 		);
 	}
 
-    public function leoUnique()
+    public function zeroUnique()
     {
         $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
-        if (!isset($user))
-        {
+        if (!isset($user)) {            
             $this->save();
+            if (Yii::app()->user->id)
+                $this->saveChild($this->id);
             return $this;
-        }          
-        return $user;
+        } else {
+            if (Yii::app()->user->id && !isset($user->child)) 
+                $this->saveChild($user->id);
+            return $user;
+        }        
+    }
+
+    public function saveChild($id_child = 0)
+    {
+        $user_child = new UserChild();
+        $user_child->user_id = Yii::app()->user->id;
+        $user_child->user_child_id = $id_child;
+        $user_child->save();
     }
 
 }

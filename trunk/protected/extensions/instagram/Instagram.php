@@ -498,9 +498,9 @@ class Instagram extends CApplicationComponent {
   public function getAccessToken() {
     $user = User::model()->find('id=:id', array(':id' => Yii::app()->user->id)); 
     if ($user) 
-      return $user->access_token;
+      return $this->_accesstoken = $user->access_token;
 
-    return null;
+    return $this->_accesstoken;
   }
 
   /**

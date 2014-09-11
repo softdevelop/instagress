@@ -130,13 +130,14 @@ class SiteController extends Controller
 			  	$user->instagram_id = $data->user->id;
 			  	$user->access_token = $instagram->getAccessToken($data);
 			  	$user->full_name = $data->user->full_name;	
-
 			  	// check if instagram_id is unique then save to db
-			  	$user = $user->leoUnique();
+			  	$user = $user->zeroUnique();
 
-  			  	// login and redirect to home page
-		  		Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id),0);
-		  		$this->redirect('/site/index');
+			  	if (!isset(Yii::app()->user->id))
+	  			  	// login and redirect to home page
+			  		Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id), 0);
+
+		  		$this->redirect('/user/account');
 		  	}
 		  	else
 		  	{
