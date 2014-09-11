@@ -1,7 +1,11 @@
+ul {
+    list-style: none;
+}
 ul.grid {
     list-style: none;
     margin: 0;
     padding: 0;
+    float: left;
 }
 ul.grid li {
     float: left;
@@ -27,4 +31,24 @@ ul.grid .comment {
     background: none;
     margin: 0;
     padding: 0;
+}
+
+.main-info {
+    display: block;
+    float: left;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.profile-picture {
+    float: left;
+    width: 100px;
+    margin-right: 20px;
+}
+.profile-picture img {
+    width: 100px;
+}
+.media {
+    float: left;
+    width: 100%;
+}
 }

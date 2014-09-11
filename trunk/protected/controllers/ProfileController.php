@@ -42,7 +42,7 @@
 
 			$user_info = $instagram->getUser($user->instagram_id);
 			$media = $instagram->getUserMedia($user->instagram_id);
-			
+		
 			$this->render('index', array(
 				'user_info' => $user_info,
 				'medias' => $media->data
