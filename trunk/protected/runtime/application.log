@@ -2589,3 +2589,195 @@ Stack trace:
 REQUEST_URI=/site/success?code=9c55f4eaf1bd4b2b9d4752d75c36a828
 HTTP_REFERER=http://instagress.me/user/account/add
 ---
+2014/09/12 07:02:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/12 07:13:32 [error] [php] Undefined property: stdClass::$user (D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\SiteController.php:117)
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CWebApplication->run()
+REQUEST_URI=/site/success?code=21e823c9fb0c4f60a321dc5f9b0e5ca8
+2014/09/12 07:13:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/12 07:14:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "signup/index".' in D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('signup/index')
+#1 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/signup/index
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/12 07:16:25 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:421
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(148): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes(100000)
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('')
+#12 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like')
+#13 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like
+HTTP_REFERER=http://instagress.me/user/account
+---
+2014/09/12 07:16:43 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:421
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(148): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes(100000)
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('')
+#12 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like')
+#13 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like
+HTTP_REFERER=http://instagress.me/user/account
+---
+2014/09/12 12:04:50 [error] [exception.CException] exception 'CException' with message 'Property "UserIdentity._identity" is not defined.' in D:\localhost\flo\2014-09\instagress\trunk\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\protected\components\UserIdentity.php(37): CComponent->__get('_identity')
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\models\LoginForm.php(65): UserIdentity->authenticate()
+#2 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\controllers\AuthController.php(28): LoginForm->login()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): AuthController->actionLogin()
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('login')
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/auth/login')
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#11 {main}
+REQUEST_URI=/user/auth/login
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/12 20:56:41 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "notsafe".' in D:\localhost\flo\2014-09\instagress\trunk\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\db\ar\CActiveRecord.php(227): CComponent->__call('notsafe', Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\components\UserIdentity.php(39): CActiveRecord->__call('notsafe', Array)
+#2 D:\localhost\flo\2014-09\instagress\trunk\protected\components\UserIdentity.php(39): User->notsafe()
+#3 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\models\LoginForm.php(65): UserIdentity->authenticate()
+#4 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\controllers\AuthController.php(28): LoginForm->login()
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): AuthController->actionLogin()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('login')
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/auth/login')
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#13 {main}
+REQUEST_URI=/user/auth/login
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/12 20:58:02 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "notsafe".' in D:\localhost\flo\2014-09\instagress\trunk\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\db\ar\CActiveRecord.php(227): CComponent->__call('notsafe', Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\components\UserIdentity.php(39): CActiveRecord->__call('notsafe', Array)
+#2 D:\localhost\flo\2014-09\instagress\trunk\protected\components\UserIdentity.php(39): User->notsafe()
+#3 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\models\LoginForm.php(65): UserIdentity->authenticate()
+#4 D:\localhost\flo\2014-09\instagress\trunk\protected\modules\user\controllers\AuthController.php(28): LoginForm->login()
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): AuthController->actionLogin()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('login')
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/auth/login')
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#13 {main}
+REQUEST_URI=/user/auth/login
+HTTP_REFERER=http://instagress.me/user/auth/login
+---
+2014/09/12 21:07:16 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() | users/self/media/liked - This method requires an authenticated users access token.' in D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:421
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(148): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\LikeController.php(40): Instagram->getUserLikes(100000)
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): LikeController->actionIndex()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('')
+#12 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('like')
+#13 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/like
+HTTP_REFERER=http://instagress.me/user/account
+---
+2014/09/12 21:13:18 [error] [exception.Exception] exception 'Exception' with message 'Error: _makeCall() - cURL error: Empty reply from server' in D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php:449
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\protected\extensions\instagram\Instagram.php(138): Instagram->_makeCall('users/self/medi...', true, Array)
+#1 D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\SiteController.php(124): Instagram->getUserMedia()
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\actions\CInlineAction.php(49): SiteController->actionSuccess()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#10 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): CController->run('success')
+#12 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('site/success')
+#13 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/success?code=da5544a5092a443d9b20be3368b6b5ba
+HTTP_REFERER=http://instagress.me/site/login
+---
+2014/09/12 21:16:46 [error] [php] Undefined property: stdClass::$user (D:\localhost\flo\2014-09\instagress\trunk\protected\controllers\SiteController.php:117)
+Stack trace:
+#0 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(133): SiteController->runAction()
+#1 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CInlineFilter.php(58): SiteController->filterAccessControl()
+#4 D:\localhost\flo\2014-09\instagress\trunk\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\localhost\flo\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\localhost\flo\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\localhost\flo\2014-09\instagress\trunk\index.php(11): CWebApplication->run()
+REQUEST_URI=/site/success?code=da5544a5092a443d9b20be3368b6b5ba
