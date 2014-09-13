@@ -2589,3 +2589,61 @@ Stack trace:
 REQUEST_URI=/site/success?code=9c55f4eaf1bd4b2b9d4752d75c36a828
 HTTP_REFERER=http://instagress.me/user/account/add
 ---
+2014/09/12 10:41:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[42000] [1049] Unknown database 'instagress'' in D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 D:\localhost\flo\2014-08\instagress\instagress\trunk\protected\extensions\instagram\Instagram.php(499): CActiveRecord->find('id=:id', Array)
+#8 D:\localhost\flo\2014-08\instagress\instagress\trunk\protected\extensions\instagram\Instagram.php(80): Instagram->getAccessToken()
+#9 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(217): Instagram->__construct()
+#10 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#11 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(523): CModule->getComponent('instagram')
+#12 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(163): CModule->preloadComponents()
+#13 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(125): CApplication->__construct('D:\localhost\fl...')
+#14 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\localhost\fl...')
+#15 D:\localhost\flo\2014-08\instagress\instagress\trunk\index.php(11): YiiBase::createWebApplication('D:\localhost\fl...')
+#16 {main}
+REQUEST_URI=/
+---
+2014/09/12 10:41:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[42000] [1049] Unknown database 'instagress'' in D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php:382
+Stack trace:
+#0 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(450): CModule->getComponent('db')
+#4 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(634): CApplication->getDb()
+#5 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\db\ar\CActiveRecord.php(1455): CActiveRecord->getCommandBuilder()
+#7 D:\localhost\flo\2014-08\instagress\instagress\trunk\protected\extensions\instagram\Instagram.php(499): CActiveRecord->find('id=:id', Array)
+#8 D:\localhost\flo\2014-08\instagress\instagress\trunk\protected\extensions\instagram\Instagram.php(80): Instagram->getAccessToken()
+#9 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(217): Instagram->__construct()
+#10 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#11 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CModule.php(523): CModule->getComponent('instagram')
+#12 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(163): CModule->preloadComponents()
+#13 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(125): CApplication->__construct('D:\localhost\fl...')
+#14 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\localhost\fl...')
+#15 D:\localhost\flo\2014-08\instagress\instagress\trunk\index.php(11): YiiBase::createWebApplication('D:\localhost\fl...')
+#16 {main}
+REQUEST_URI=/user/login
+---
+2014/09/12 10:43:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/login".' in D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#1 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\localhost\flo\2014-08\instagress\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/user/login
+---
+2014/09/13 04:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\localhost\flo\2014-08\instagress\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\localhost\flo\2014-08\instagress\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
