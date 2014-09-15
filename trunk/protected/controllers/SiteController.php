@@ -169,7 +169,69 @@ class SiteController extends Controller
 
 	public function actionIndex() 
 	{
-		$this->render('index');
-	}
 
+		
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('index',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
+	public function actionAbout()
+	{
+		
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('about',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
+	public function actionTerms()
+	{
+		
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('terms',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
+	public function actionPrices()
+	{
+			
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('prices',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
+	public function actionGuide()
+	{
+		
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('guide',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
+	public function actionBlog()
+	{
+			
+		$instagram = Yii::app()->instagram;
+		$loginUrl = $instagram->getLoginUrl();
+		
+		$this->render('blog',array(
+			'loginUrl'=>$loginUrl,
+			
+		));
+	}
 }

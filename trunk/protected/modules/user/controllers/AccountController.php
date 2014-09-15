@@ -27,7 +27,7 @@ class AccountController extends FController
     public function actionIndex()
     {
         $this->render('index', array(
-
+            
         ));
     }
 
