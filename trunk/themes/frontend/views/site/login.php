@@ -3,6 +3,6 @@
   <li>
   	
     <a class="login" href="<?php echo $loginUrl ?>">» Login with Instagram</a>
-    <h>Use your Instagram account to login.</h4>
+    <h4>Use your Instagram account to login.</h4>
   </li>
 </ul>
