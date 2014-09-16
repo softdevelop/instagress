@@ -30,9 +30,7 @@
 			<p>Our first beta version was launched publicly a year ago today. We could never have expected the level of interest we’ve had nor that the site would be so well received. We’d like to thank you all for your kind and supportive words during all this time. We decided to give you 3 free days as a present to celebrate with us our birthday. </p><p>We also want to introduce the New Dashboard for multiple accounts today. It's the more advanced system where you can manage all your Instagram accounts in one place from any devices. You need to create your personal Instagress account to start using it.</p><p>We hope you find it useful and we’d love to hear any feedback you might have. It's just a small part of our updates – new features coming soon!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/864945004.png" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -112,7 +110,7 @@
 			<p>It's almost been a year since we launched the first version of our project. During this time, we've made a lot of improvements, and have even more plans for the future development of Instagress.</p><p>Recently we began to notice some disadvantages of our current resource "Activity Time". Sometimes people have problems with certain actions or Instagram may not be available, but Activity Time is still spent during this period, giving no positive result, until activity is turned off automatically by our system after discovering problems.</p><p>After analyzing the shortcomings of Activity Time, we want to try a new system for performing and tracking actions — Activity Points. </p><p>This new payment system is better suited for all activities, especially multiple accounts. This eliminates the main disadvantage of Activity Time since points will only be used when the action is performed. </p><p>This new system will allow you to manage multiple Instagram accounts from one Instagress account, reducing your time and increasing your results.</p><p>We want to provide the most fair and reasonable conversion of existing Activity Time into the new Activity Points system, so we would love to hear your feedback! </p><p>Please don't hesitate to tell us what you think about the new Activity Points in the comments, or send us a message via the <a href="#" data-popup-open="#popup-support">support form</a>.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/860933366.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -153,7 +151,7 @@
 			<p>Very soon we're going to introduce you a new dashboard for easy managing multiple accounts. </p><p>On this page you can control all your Instagram accounts and view activity stats in one place. It will be a fantastic tool for your business!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854782405.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -196,7 +194,7 @@
 			<p>We've added a new function in "Auto-stop settings" section: "Stop if no users to unfollow".</p><p>When checking this box your activity will be stopped automatically if there no more users to unfollow from the selected unfollow source. Otherwise our system will start checking your "following" list time after time.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854682758.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -276,7 +274,7 @@
 			<p>Some days ago all Instagram users got a message: "We’ve removed deactivated and spam accounts, your list of followers and people you follow may have changed”. They also improved their algorithm for determining the spam comments.</p><p>Please, make sure that you use more than 10 different comments (they must be different as much as possible). Otherwise Instagram will impose a restriction on your comment for some hours.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854683316.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -317,8 +315,7 @@
 			<p>Now all your changes in settings will be automatically saved even if you won't pushing the Start button. </p><p>You also can reset all settings to default values just with one click.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854563343.jpg" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -358,8 +355,7 @@
 			<p>Turn it on and you will not comment more than one photo or video of the same user.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854684751.png" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -438,7 +434,7 @@
 			<p>Now you can buy more than 30 days. Check out our extra time packages!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854558517.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -479,7 +475,7 @@
 			<p>We are pleased to welcome our new website design. Hope you will like it!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854557077.png" class="blog-img"/></p>
+				
 			
 
 			
@@ -559,8 +555,7 @@
 			<p>We've added Unfollow function. Hope you'll like it!</p><p>Remember that you can't follow and unfollow at the same time.<br/></p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854554439.png" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -600,9 +595,7 @@
 			<p>Add an email to your account if you want to be informed when your Activity will be automatically stopped because of reached limits or while errors occur.</p>
 
 			
-				<p><img src="../scontent-a-fra.xx.fbcdn.net/hphotos-prn1/t1.0-9/1016310_656112687764054_49878565_n.png" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -643,8 +636,7 @@
 			<p>To use that feature please login with one of your accounts, then click on "Change account" link between your username and "Set email" links on your Activity page. On the "Change account" popup you can add as many accounts as you wish and then easily switch between them without re-login.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854684218.jpg" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -684,9 +676,7 @@
 			<p>We've made a fantastic guide about all our settings. If you follow our recommendations, the use of our service will be completely safe for you!</p><p>Don't hesitate to contact us if you have any further questions.</p><p><a href="guide.html">https://instagress.com/guide</a></p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854685668.jpg" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -727,10 +717,7 @@
 			<p>Instagress is a great tool for your business.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/856250302.jpg" class="blog-img"/></p>
-			
-
-			
+				
 				<div class="blog-tags">
 					
 						<a href="https://instagress.com/blog/tags/promo">#promo</a>
@@ -768,9 +755,7 @@
 			<p>BUB is a very special one of a kind critter. More specifically, she is the most amazing cat on the planet.</p><p>You can follow her on Instagram @iamlilbub.</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854541175.png" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -807,10 +792,7 @@
 			<p>Thank you to all our users for their support this year.</p><p>As an early gift, we'd love to give you a discount for all time packages in December. Note that you can add as many time to your account as you wish!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854450452.png" class="blog-img"/></p>
-			
-
-			
+				
 				<div class="blog-tags">
 					
 						<a href="https://instagress.com/blog/tags/time packages">#time packages</a>
@@ -848,9 +830,7 @@
 			<p>Due to the improvement of the hardware, we are pleased to inform you that now all new users get 3 days for FREE! And also we have added 3 days to all those who have registered less than 3 days ago!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854681825.jpg" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -887,9 +867,7 @@
 			<p>Download our Instagress app and use it with your Google Chrome browser. </p><p><a href="https://chrome.google.com/webstore/detail/instagress/llfeghjdlhcbahpgmdgkmmbmmpjkfpaf">https://chrome.google.com/webstore/detail/instagress/llfeghjdlhcbahpgmdgkmmbmmpjkfpaf</a></p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854538931.jpg" class="blog-img"/></p>
-			
-
+				
 			
 				<div class="blog-tags">
 					
@@ -926,8 +904,7 @@
 			<p>We appreciate your confidence in us and it is with great pleasure that we will work diligently to deliver on our promises to you.</p><p>Please feel free to contact us if you have any doubts or if you need further information. We will gladly answer any questions.</p><p>Keep on gressing!</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854447388.jpg" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -965,8 +942,7 @@
 			<p>Hi there!</p><p>We want to invite you to join our open beta test.</p><p>This is our first version, so things will change soon, and often. It's so important for us to receive your feedback, bug reports, ideas, suggestions for change or compliments.</p><p>Happy test and more followers!</p><p>- Instagrass Team</p>
 
 			
-				<p><img src="../d3j5vwomefv46c.cloudfront.net/photos/large/854445265.png" class="blog-img"/></p>
-			
+				
 
 			
 				<div class="blog-tags">
@@ -986,20 +962,14 @@
 
 	
 </section>
-
 <div id="popup-login" class="popup popup-medium">
 	<h3>
 		
-			Sign in with Instagram account
+			Sign in
 		
 	</h3>
 	<a href="#" class="btn-close" data-popup-close="#popup-login"></a>
-	<div class="alert alert-success">
-		<strong>Your privacy is important to us!</strong><br/>
-		We won't store your password and use it only to obtain required data 
-		for Instagram <abbr title="Application programming interface">API</abbr>.
-		Please, check out <a href="guide.html">Guide</a> page before you sign in.
-	</div>
+	
 	<div class="alerts">
 		<div class="alert alert-error"></div>
 		<div class="alert alert-success"></div>
@@ -1030,10 +1000,6 @@
 		</div>
 		
 
-		<div>
-			<a href="#" class="link-ajax" data-popup-open="#popup-login-help">Sign in help</a>
-		</div>
-
 		
 		<hr/>
 		<div class="color-gray -mb20">
@@ -1048,5 +1014,5 @@
 		</div>
 		
 	</form>
-	<a class="login" href="<?php echo $loginUrl ?>">» Login with Instagram</a>
+	<a class="login btn btn-plain btn-success mb20" href="<?php echo $loginUrl ?>">» Login with Instagram</a>
 </div>

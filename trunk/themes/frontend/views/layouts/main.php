@@ -25,8 +25,31 @@
 	<header>
 		
 
+		<?php if(Yii::app()->user->hasFlash('signupsuccess')): ?>
+
+			<div class="dashboard-row">
+				<div class="container">
+					<div class="dashboard-row-content">
+						<?php echo Yii::app()->user->getFlash('signupsuccess'); ?>
+					</div>
+				</div>
+			</div>
 		
 
+		<?php endif;?>
+		<?php if(Yii::app()->user->hasFlash('signuperror')): ?>
+
+			<div class="dashboard-row">
+				<div class="container">
+					<div class="dashboard-row-content">
+						<?php echo Yii::app()->user->getFlash('signuperror'); ?>
+					</div>
+				</div>
+			</div>
+		
+
+		<?php endif;?>
+		<?php if(Yii::app()->user->isGuest) { ?>
 		
 			<div class="dashboard-row">
 				<div class="container">
@@ -41,7 +64,7 @@
 				</div>
 			</div>
 		
-
+			<?php } ?>
 		<div class="container">
 			<a href="index" class="logo"></a>
 			<ul class="menu">
@@ -326,7 +349,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="span4">
-					<a href="index.html" class="logo-footer"></a>
+					<a href="/site/index" class="logo-footer"></a>
 				</div>
 				<div class="span4">
 					<a href="mailto:support@instagress.com" class="contact-email">
@@ -355,31 +378,31 @@
 	
 		
 		<li class="active">
-			<a href="about" >About</a>
+			<a href="/site/about" >About</a>
 			
 		</li>
 	
 		
 		<li class="">
-			<a href="terms" >Terms</a>
+			<a href="/site/terms" >Terms</a>
 			
 		</li>
 	
 		
 		<li class="">
-			<a href="prices" >Prices</a>
+			<a href="/site/prices" >Prices</a>
 			
 		</li>
 	
 		
 		<li class="">
-			<a href="guide" >Guide</a>
+			<a href="/site/guide" >Guide</a>
 			
 		</li>
 	
 		
 		<li class="">
-			<a href="blog" >Blog</a>
+			<a href="/site/blog" >Blog</a>
 			
 		</li>
 	
@@ -519,48 +542,48 @@
 </div>
 
 	<div id="popup-account-signup" class="popup popup-medium">
-	<h3>Sign up for the New Dashboard</h3>
-	<a href="#" class="btn-close" data-popup-close="#popup-account-signup"></a>
-	<div class="alerts">
-		<div class="alert alert-error"></div>
-		<div class="alert alert-success"></div>
+		<h3>Sign up for the New Dashboard</h3>
+		<a href="#" class="btn-close" data-popup-close="#popup-account-signup"></a>
+		<div class="alerts">
+			<div class="alert alert-error"></div>
+			<div class="alert alert-success"></div>
+		</div>
+		<form action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/user/register/create" id="account-signup-form" method="post">
+			<div class="control-group field-wrap" data-field="email">
+				<input type="text" name="SignUp[username]" id="inpAccountSignupUserName"
+					   class="input-block-level input-icon input-icon-username"
+					   placeholder="User name" autofocus/>
+				<span class="help-block text-error hidden"></span>
+			</div>
+			<div class="control-group field-wrap" data-field="email">
+				<input type="text" name="SignUp[email]" id="inpAccountSignupEmail"
+					   class="input-block-level input-icon input-icon-email"
+					   placeholder="Email" autofocus/>
+				<span class="help-block text-error hidden"></span>
+			</div>
+			<div class="control-group field-wrap" data-field="password">
+				<input type="password" name="SignUp[password]" id="inpAccountSignupPassword"
+					   class="input-block-level input-icon input-icon-password"
+					   placeholder="Password (random by default)"/>
+				<span class="help-block text-error hidden"></span>
+			</div>
+			<div>
+				<button type="submit"
+						class="btn btn-plain btn-success mb20"
+						data-loading-text="Signing up...">Sign up</button>
+			</div>
+			<div class="mb10">
+				By signing up, you agree to the <a href="/site/terms" target="_blank">Terms of Service</a>.
+			</div>
+			<div>
+				Already have an account?
+				<a href="#" class="link-ajax"
+				   data-popup-close="#popup-account-signup"
+				   data-popup-open="#popup-account-login">Log in</a>
+			</div>
+			
+		</form>
 	</div>
-	<form action="https://instagress.com/account/signup" id="account-signup-form" class="form-horizontal form-ajax mb0" method="post">
-		<div class="control-group field-wrap" data-field="email">
-			<input type="text" name="username" id="inpAccountSignupUserName"
-				   class="input-block-level input-icon input-icon-username"
-				   placeholder="User name" autofocus/>
-			<span class="help-block text-error hidden"></span>
-		</div>
-		<div class="control-group field-wrap" data-field="email">
-			<input type="text" name="email" id="inpAccountSignupEmail"
-				   class="input-block-level input-icon input-icon-email"
-				   placeholder="Email" autofocus/>
-			<span class="help-block text-error hidden"></span>
-		</div>
-		<div class="control-group field-wrap" data-field="password">
-			<input type="password" name="password" id="inpAccountSignupPassword"
-				   class="input-block-level input-icon input-icon-password"
-				   placeholder="Password (random by default)"/>
-			<span class="help-block text-error hidden"></span>
-		</div>
-		<div>
-			<button type="submit"
-					class="btn btn-plain btn-success mb20"
-					data-loading-text="Signing up...">Sign up</button>
-		</div>
-		<div class="mb10">
-			By signing up, you agree to the <a href="/site/terms" target="_blank">Terms of Service</a>.
-		</div>
-		<div>
-			Already have an account?
-			<a href="#" class="link-ajax"
-			   data-popup-close="#popup-account-signup"
-			   data-popup-open="#popup-account-login">Log in</a>
-		</div>
-		
-	</form>
-</div>
 
 	<div id="popup-account-login" class="popup popup-medium">
 	<h3>Log in to the New Dashboard</h3>
@@ -610,7 +633,7 @@
 		<div class="alert alert-error"></div>
 		<div class="alert alert-success"></div>
 	</div>
-	<form action="https://instagress.com/account/password/reset" id="account-password-reset-form" class="form-horizontal form-ajax mb0" method="post">
+	<form action="" id="account-password-reset-form" class="form-horizontal form-ajax mb0" method="post">
 		<div class="control-group field-wrap" data-field="email">
 			<input type="text" name="email" id="inpAccountPasswordResetEmail"
 				   class="input-block-level input-icon input-icon-email"

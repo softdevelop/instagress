@@ -239,20 +239,14 @@
 		</div>
 	</div>
 </section>
-
 <div id="popup-login" class="popup popup-medium">
 	<h3>
 		
-			Sign in with Instagram account
+			Sign in
 		
 	</h3>
 	<a href="#" class="btn-close" data-popup-close="#popup-login"></a>
-	<div class="alert alert-success">
-		<strong>Your privacy is important to us!</strong><br/>
-		We won't store your password and use it only to obtain required data 
-		for Instagram <abbr title="Application programming interface">API</abbr>.
-		Please, check out <a href="guide.html">Guide</a> page before you sign in.
-	</div>
+	
 	<div class="alerts">
 		<div class="alert alert-error"></div>
 		<div class="alert alert-success"></div>
@@ -283,10 +277,6 @@
 		</div>
 		
 
-		<div>
-			<a href="#" class="link-ajax" data-popup-open="#popup-login-help">Sign in help</a>
-		</div>
-
 		
 		<hr/>
 		<div class="color-gray -mb20">
@@ -301,5 +291,5 @@
 		</div>
 		
 	</form>
-	<a class="login" href="<?php echo $loginUrl ?>">» Login with Instagram</a>
+	<a class="login btn btn-plain btn-success mb20" href="<?php echo $loginUrl ?>">» Login with Instagram</a>
 </div>

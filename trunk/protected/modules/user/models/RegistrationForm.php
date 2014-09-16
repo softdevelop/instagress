@@ -8,11 +8,12 @@ class RegistrationForm extends CFormModel
 {
 	public $email;
 	public $password;
+	public $username;
 
 	public function rules() {
 		$rules = array(
-			array('password, email', 'required'),
-			array('email', 'unique', 'message' => "This user's email already exists."),
+			array('username, password, email', 'required'),
+			array('username', 'email', 'unique', 'message' => "This user's email already exists."),
 		);
 		return $rules;
 	}

@@ -19,7 +19,7 @@ class RegisterController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',  // allow all users to access 'index' and 'view' actions.
-				'actions' => array('index'),
+				'actions' => array('index', 'create'),
 				'users' => array('*'),
 			),
 			array('deny'),
@@ -43,5 +43,40 @@ class RegisterController extends Controller {
 			'model' => $user
 		));
 
+	}
+	public function actionCreate(){
+		$model = new User;
+		
+		if(isset($_POST['SignUp']))
+		{
+			$model->attributes=$_POST['SignUp'];
+			$model->username=$_POST['SignUp']['username'];
+			if($model->save()){
+				Yii::app()->user->setFlash('signupsuccess','Sign Up Succesfull');
+				$this->redirect('/site/index');
+			}
+			else {
+				Yii::app()->user->setFlash('signuperror','Sign Up Error');
+				$this->redirect('/site/index');
+			}
+		}
+		else {
+			Yii::app()->user->setFlash('signuperror','Sign Up Error');
+				$this->redirect('/site/index');
+		}
+		/*
+		$return = array(
+			"formHide" => true,
+			"formReset" => true,
+			"success" => "Thank you for choosing Instagress!<br/>We've sent a confirmation link to your email."
+		);
+		echo json_encode($return);
+		exit();
+		*/
+		/*
+		if (!empty($_POST['account-signup-form'])) {
+			var_dump("expression"); exit;
+		}
+		*/
 	}
 }
