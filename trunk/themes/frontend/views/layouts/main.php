@@ -66,7 +66,7 @@
 		
 			<?php } ?>
 		<div class="container">
-			<a href="index" class="logo"></a>
+			<a href="/site/index" class="logo"></a>
 			<ul class="menu">
 	
 		

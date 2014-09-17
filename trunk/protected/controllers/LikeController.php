@@ -44,4 +44,10 @@
 			));
 			
 		}
+		public function actionAutolike()
+		{
+			$instagram = Yii::app()->instagram;
+			$likes = $instagram->searchUser('khuongtran5');
+			echo "<pre>"; var_dump($likes->data);die('123');
+		}
 	}
