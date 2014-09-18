@@ -548,21 +548,15 @@
 			<div class="alert alert-error"></div>
 			<div class="alert alert-success"></div>
 		</div>
-		<form action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/user/register/create" id="account-signup-form" method="post">
+		<form action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/user/register/index" id="account-signup-form" method="post">
 			<div class="control-group field-wrap" data-field="email">
-				<input type="text" name="SignUp[username]" id="inpAccountSignupUserName"
-					   class="input-block-level input-icon input-icon-username"
-					   placeholder="User name" autofocus/>
-				<span class="help-block text-error hidden"></span>
-			</div>
-			<div class="control-group field-wrap" data-field="email">
-				<input type="text" name="SignUp[email]" id="inpAccountSignupEmail"
+				<input type="text" name="User[email]" id="inpAccountSignupEmail"
 					   class="input-block-level input-icon input-icon-email"
 					   placeholder="Email" autofocus/>
 				<span class="help-block text-error hidden"></span>
 			</div>
 			<div class="control-group field-wrap" data-field="password">
-				<input type="password" name="SignUp[password]" id="inpAccountSignupPassword"
+				<input type="password" name="User[password]" id="inpAccountSignupPassword"
 					   class="input-block-level input-icon input-icon-password"
 					   placeholder="Password (random by default)"/>
 				<span class="help-block text-error hidden"></span>

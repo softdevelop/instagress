@@ -105,7 +105,6 @@ class SiteController extends Controller
 	 */
 	public function actionSuccess()
 	{
-
 		$instagram = Yii::app()->instagram;
 		// receive OAuth code parameter
 		$code = $_GET['code'];
@@ -116,7 +115,7 @@ class SiteController extends Controller
 		  	$data = $instagram->getOAuthToken($code);
 		  	$username  = $data->user->username;
 		  	$user_id = $data->user->id;
-		  
+		  	
 		 	// store user access token
 		  	$instagram->setAccessToken($data);
 

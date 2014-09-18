@@ -1,5 +1,4 @@
 <?php /* 
-<div class="add"><a href="/user/account/add">Add account</a></div>
 
 */ ?>
 <section class="account-index">
@@ -32,10 +31,9 @@
 
 				<div class="span4">
 					<div class="title-block">Add new account to your dashboard:</div>
-
-					
-
 					<div class="-add-account">
+						<div class="add"><a href="/user/account/add">Add account</a></div>
+
 						<button class="btn btn-plain btn-big btn-add-account btn-danger"
 								data-popup-open="#popup-login">Add account</button>
 					</div>
