@@ -27,7 +27,8 @@ class AuthController extends FController
                 $model->username = $_POST['LoginForm']['username'];
                 // validate user input and redirect to the previous page if valid
                 //var_dump($model->validate()); exit;
-                $model->login();
+                //$model->password=md5($model->password);
+               
                 if ($model->validate() && $model->login())
                 {
                     $this->redirect('/site/index');
@@ -172,7 +173,4 @@ class AuthController extends FController
             ));
         }
     }
-    
-    
-    
 }

@@ -34,9 +34,7 @@ class RegisterController extends Controller {
 			if ($user->save()) {
 				Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id),0);
 				$this->redirect('/user/account');
-			}
-				
-			
+			}		
 		}
 		
 		$this->render('index', array(
