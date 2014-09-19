@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/css/jquery.fancyboxc069.css?v=114" media="all"/>
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/css/commonc069.css?v=114" media="all"/>
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/css/mainc069.css?v=114" media="all"/>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/js/jquery-1.11.0.js"></script>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -548,35 +549,56 @@
 			<div class="alert alert-error"></div>
 			<div class="alert alert-success"></div>
 		</div>
-		<form action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/user/register/index" id="account-signup-form" method="post">
+		<?php 
+			$form = $this->beginWidget('CActiveForm', array(
+					'id' => 'account-signup-form', 
+					'method' => 'post'
+				));
+
+		?>
 			<div class="control-group field-wrap" data-field="email">
-				<input type="text" name="User[email]" id="inpAccountSignupEmail"
-					   class="input-block-level input-icon input-icon-email"
-					   placeholder="Email" autofocus/>
-				<span class="help-block text-error hidden"></span>
+				<input type="text" name="User[email]" id="User_email" class="input-block-level input-icon input-icon-email" placeholder="Email" autofocus/>
+				<span class="help-block text-error email-error"></span>
 			</div>
 			<div class="control-group field-wrap" data-field="password">
-				<input type="password" name="User[password]" id="inpAccountSignupPassword"
-					   class="input-block-level input-icon input-icon-password"
-					   placeholder="Password (random by default)"/>
-				<span class="help-block text-error hidden"></span>
+				<input type="password" name="User[password]" id="User_password" class="input-block-level input-icon input-icon-password" placeholder="Password (random by default)"/>
+				<span class="help-block text-error password-error"></span>
 			</div>
 			<div>
-				<button type="submit"
-						class="btn btn-plain btn-success mb20"
-						data-loading-text="Signing up...">Sign up</button>
+				<button id='submit' type="submit" class="btn btn-plain btn-success mb20" data-loading-text="Signing up...">Sign up</button>
 			</div>
 			<div class="mb10">
 				By signing up, you agree to the <a href="/site/terms" target="_blank">Terms of Service</a>.
 			</div>
 			<div>
 				Already have an account?
-				<a href="#" class="link-ajax"
-				   data-popup-close="#popup-account-signup"
-				   data-popup-open="#popup-account-login">Log in</a>
+				<a href="#" class="link-ajax" data-popup-close="#popup-account-signup" data-popup-open="#popup-account-login">Log in</a>
 			</div>
 			
-		</form>
+		<?php $this->endWidget(); ?>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#account-signup-form').submit(function(e) {
+					$.ajax({
+						url : '/user/register/index',
+						type : 'POST',
+						data : $(this).serializeArray(),
+						success : function(data) {
+							$('.email-error, .password-error').text('');
+							var json = JSON.parse(data);
+							if (json.errors == '')
+								window.location = "http://<?php echo $_SERVER['HTTP_HOST'];?>/user/account";
+							if (json.errors.email != undefined)
+								$('.email-error').text(json.errors.email[0]);
+							if (json.errors.password != undefined )
+								$('.password-error').text(json.errors.password[0]);
+						}
+					});
+					e.preventDefault();
+					
+				});
+			});
+		</script>
 	</div>
 
 	<div id="popup-account-login" class="popup popup-medium">
