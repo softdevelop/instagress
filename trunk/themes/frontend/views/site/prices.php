@@ -1,3 +1,4 @@
+
 <section class="page prices">
 	<div class="container">
 		<h1 class="title-big">Prices</h1>

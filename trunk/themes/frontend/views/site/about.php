@@ -1,4 +1,6 @@
 
+
+
 <section class="page about">
 	<div class="container">
 		<h1 class="title-big">About</h1>

@@ -36,6 +36,7 @@
   ?>
   </ul>
   */ ?>
+
   <section class="likes">
   <div class="container likes-media">
     <h1>Likes</h1>

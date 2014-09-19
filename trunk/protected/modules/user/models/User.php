@@ -151,5 +151,10 @@ class User extends CActiveRecord {
         $user_child->user_child_id = $id_child;
         $user_child->save();
     }
+    public static function getInstagramId()
+    {
 
+        $user = User::model()->findByPk(Yii::app()->user->id);
+        return isset($user) ? $user->instagram_id : 0;
+    }
 }
