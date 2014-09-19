@@ -24,18 +24,22 @@ class AuthController extends FController
             // collect user input data
             if (isset($_POST['LoginForm'])) {
                 $model->attributes = $_POST['LoginForm'];
+                $model->username = $_POST['LoginForm']['username'];
                 // validate user input and redirect to the previous page if valid
+                //var_dump($model->validate()); exit;
+                //$model->password=md5($model->password);
+               
                 if ($model->validate() && $model->login())
                 {
-                    $this->redirect('/user/account');
+                    $this->redirect('/site/index');
                 }
             }
             // display the login form
-            $this->render('login', array('model' => $model));
+            $this->redirect('/site/index', array('model' => $model));
         }
         else
         {
-            $this->redirect('/');
+            $this->redirect('/site/index');
         }
     }
     
@@ -169,7 +173,4 @@ class AuthController extends FController
             ));
         }
     }
-    
-    
-    
 }

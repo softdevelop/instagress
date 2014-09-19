@@ -49,6 +49,7 @@ class User extends CActiveRecord {
         return array(
             array('access_token, full_name, instagram_id, username', 'required', 'on' => 'instagram_login'),
             array('email', 'unique'),
+            array('email', 'email'),
             array('password, email', 'required', 'except' => 'instagram_login'),           
             array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified', 'safe', 'on'=>'search'),
             
@@ -128,14 +129,17 @@ class User extends CActiveRecord {
     public function zeroUnique()
     {
         $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
+        
         if (!isset($user)) {            
             $this->save();
             if (Yii::app()->user->id)
                 $this->saveChild($this->id);
             return $this;
         } else {
-            if (Yii::app()->user->id && !isset($user->child)) 
+
+            if (Yii::app()->user->id && empty($user->child))
                 $this->saveChild($user->id);
+                
             return $user;
         }        
     }

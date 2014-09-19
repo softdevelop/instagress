@@ -77,7 +77,8 @@ class Instagram extends CApplicationComponent {
    * @return void
    */
   public function __construct() {
-    $this->_accesstoken = $this->getAccessToken();
+    if (!isset($this->_accesstoken))
+      $this->_accesstoken = $this->getAccessToken();
   }
   
   /**
@@ -495,12 +496,12 @@ class Instagram extends CApplicationComponent {
    * 
    * @return string
    */
-  public function getAccessToken() {
+  public function getAccessToken($data = null) {
     $user = User::model()->find('id=:id', array(':id' => Yii::app()->user->id)); 
-    if ($user) 
+    if ($user && $user->access_token) 
       return $this->_accesstoken = $user->access_token;
-
-    return $this->_accesstoken;
+    if ($data)
+      return $this->_accesstoken = $data->access_token;
   }
 
   /**

@@ -19,7 +19,7 @@ class RegisterController extends Controller {
 	public function accessRules() {
 		return array(
 			array('allow',  // allow all users to access 'index' and 'view' actions.
-				'actions' => array('index'),
+				'actions' => array('index', 'create'),
 				'users' => array('*'),
 			),
 			array('deny'),
@@ -29,14 +29,18 @@ class RegisterController extends Controller {
 	public function actionIndex() {
 
 		$user = new User();
+
 		if (!empty($_POST['User'])) {
 			$user->attributes = $_POST['User'];
 			if ($user->save()) {
 				Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id),0);
-				$this->redirect('/user/account');
+				echo json_encode(array('errors' => ''));
 			}
-				
-			
+			else {
+				$errors = $user->getErrors();
+				echo json_encode(array('errors' => $errors));
+			}		
+			exit();
 		}
 		
 		$this->render('index', array(

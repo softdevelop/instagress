@@ -6,13 +6,15 @@
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
 class LoginForm extends CFormModel
-{
+{   
+    public $username;    
+    public $password;
 	public $email;
-	public $password;
 	public $rememberMe;
 	public $status;
 	private $_identity;
 	public $type;
+
 
 	/**
 	 * Declares the validation rules.
@@ -23,8 +25,8 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-            array('email','email', 'allowEmpty' => false),
-            array('password', 'required'),
+            //array('email','email', 'allowEmpty' => false),
+            array('username, password', 'required'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
@@ -48,9 +50,9 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->_identity=new UserIdentity($this->email,$this->password);
+		$this->_identity=new UserIdentity($this->username,$this->password);
 		if(!$this->_identity->authenticate())
-			$this->addError('password','Incorrect email or password.');
+			$this->addError('password','Incorrect username or password.');
 	}
 
 	/**
@@ -61,9 +63,11 @@ class LoginForm extends CFormModel
 	{
         if($this->_identity===null)
         {
-            $this->_identity=new UserIdentity($this->email,$this->password);
+
+            $this->_identity=new UserIdentity($this->username,$this->password);
             $this->_identity->authenticate();
         }
+        
         if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
         {
             
@@ -102,7 +106,7 @@ class LoginForm extends CFormModel
 	{
 		if($this->_identity===null)
         {
-            $this->_identity=new UserIdentity($this->email,$this->password);
+            $this->_identity=new UserIdentity($this->username,$this->password);
             $this->_identity->authenticate();
         }
         if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
