@@ -2589,3 +2589,11 @@ Stack trace:
 REQUEST_URI=/site/success?code=9c55f4eaf1bd4b2b9d4752d75c36a828
 HTTP_REFERER=http://instagress.me/user/account/add
 ---
+2014/09/13 06:48:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\2014-09\instagress\trunk\framework\web\CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 D:\xampp\htdocs\2014-09\instagress\trunk\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\2014-09\instagress\trunk\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
