@@ -135,7 +135,7 @@ class SiteController extends Controller
 			  	if (!isset(Yii::app()->user->id))
 	  			  	// login and redirect to home page
 			  		Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id), 0);
-
+			  	
 		  		$this->redirect('/user/account');
 		  	}
 		  	else
@@ -168,8 +168,6 @@ class SiteController extends Controller
 
 	public function actionIndex() 
 	{
-
-		
 		$instagram = Yii::app()->instagram;
 		$loginUrl = $instagram->getLoginUrl();
 		

@@ -27,15 +27,19 @@ class AccountController extends FController
     public function actionIndex()
     {
         $user =  User::model()->findByPk(Yii::app()->user->id);
-        //echo "<pre>"; print_r($user->child);die('13');
-        //$model = UserChild::model()->findByAttributes(array('user_id'=>Yii::app()->user->id));
-        //$model = UserChild::model()->findByAttributes(array('user_id'=>Yii::app()->user->id));
-        $model=$user->child();
-        //echo "<pre>"; print_r($user->child);die('13');
+        $model = $user->child();
 
-        $this->render('index', array(
-            "models"=>$model,
-        ));
+        // initialize Instagram
+        $instagram = Yii::app()->instagram;
+        $loginUrl = $instagram->getLoginUrl();
+        
+        if (!$user->instagram_id)
+            $this->render('index', array(
+                "models" => $model,
+                'loginUrl' => $loginUrl
+            ));
+        else
+             $this->render('index1');
     }
 
     /**

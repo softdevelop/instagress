@@ -23,34 +23,7 @@
 <body>
 
 <div class="" id="">
-	
 	<header>
-		
-
-		<?php if(Yii::app()->user->hasFlash('signupsuccess')): ?>
-
-			<div class="dashboard-row">
-				<div class="container">
-					<div class="dashboard-row-content">
-						<?php echo Yii::app()->user->getFlash('signupsuccess'); ?>
-					</div>
-				</div>
-			</div>
-		
-
-		<?php endif;?>
-		<?php if(Yii::app()->user->hasFlash('signuperror')): ?>
-
-			<div class="dashboard-row">
-				<div class="container">
-					<div class="dashboard-row-content">
-						<?php echo Yii::app()->user->getFlash('signuperror'); ?>
-					</div>
-				</div>
-			</div>
-		
-
-		<?php endif;?>
 		<?php if(Yii::app()->user->isGuest) { ?>
 		
 			<div class="dashboard-row">
@@ -113,38 +86,8 @@
 
 		</div>
 	</header>
-	<?php /*
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-	
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Register', 'url'=>array('/user/register'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-
-	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-		'links'=>$this->breadcrumbs,
-	)); ?><!-- breadcrumbs -->
-	
-	*/ ?>
 	<?php include($_SERVER['DOCUMENT_ROOT']."/themes/frontend/views/site/menuTop.php"); ?>
 	<?php echo $content; ?>
-	<?php /*
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-	*/ ?>
 
 	<footer>
 		<div class="container">
@@ -384,14 +327,14 @@
 						type : 'POST',
 						data : $(this).serializeArray(),
 						success : function(data) {
-							$('.email-error, .password-error').text('');
+							$('#account-signup-form .email-error, #account-signup-form .password-error').text('');
 							var json = JSON.parse(data);
 							if (json.errors == '')
 								window.location = "http://<?php echo $_SERVER['HTTP_HOST'];?>/user/account";
 							if (json.errors.email != undefined)
-								$('.email-error').text(json.errors.email[0]);
+								$('#account-signup-form .email-error').text(json.errors.email[0]);
 							if (json.errors.password != undefined )
-								$('.password-error').text(json.errors.password[0]);
+								$('#account-signup-form .password-error').text(json.errors.password[0]);
 						}
 					});
 					e.preventDefault();
@@ -408,23 +351,21 @@
 		<div class="alert alert-error"></div>
 		<div class="alert alert-success"></div>
 	</div>
-	<form action="https://instagress.com/account/login" id="account-login-form" class="form-horizontal form-ajax mb0" method="post">
+	<form action="/user/auth/login" id="account-login-form" class="form-horizontal mb0" method="post">
 		<div class="control-group field-wrap" data-field="email">
-			<input type="text" name="email" id="inpAccountLoginEmail"
+			<input type="text" name="LoginForm[email]" id="inpAccountLoginEmail"
 				   class="input-block-level input-icon input-icon-email"
 				   placeholder="Email" autofocus/>
-			<span class="help-block text-error hidden"></span>
+			<span class="help-block text-error email-error"></span>
 		</div>
 		<div class="control-group field-wrap" data-field="password">
-			<input type="password" name="password" id="inpAccountLoginPassword"
+			<input type="password" name="LoginForm[password]" id="inpAccountLoginPassword"
 				   class="input-block-level input-icon input-icon-password"
 				   placeholder="Password"/>
-			<span class="help-block text-error hidden"></span>
+			<span class="help-block text-error password-error"></span>
 		</div>
 		<div>
-			<button type="submit"
-					class="btn btn-plain btn-success mb20"
-					data-loading-text="Logging in...">Log in</button>
+			<button type="submit" class="btn btn-plain btn-success mb20">Log in</button>
 		</div>
 		<div class="mb10">
 			<a href="#" class="link-ajax" data-popup-open="#popup-account-password-reset">Password reset</a>
@@ -434,9 +375,32 @@
 			<a href="#" class="link-ajax"
 			   data-popup-close="#popup-account-login"
 			   data-popup-open="#popup-account-signup">Sign up</a>
-		</div>
-		
+		</div>		
 	</form>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#account-login-form').submit(function(e) {
+				$.ajax({
+					url : '/user/auth/login',
+					type : 'POST',
+					data : $(this).serializeArray(),
+					success : function(data) {
+						$('#account-login-form .email-error, #account-login-form .password-error').text('');
+						var json = JSON.parse(data);
+						if (json.errors == '')
+							window.location = "http://<?php echo $_SERVER['HTTP_HOST'];?>/user/account";
+						if (json.errors.email != undefined)
+							$('#account-login-form .email-error').text(json.errors.email[0]);
+						if (json.errors.password != undefined )
+							$('#account-login-form .password-error').text(json.errors.password[0]);
+					}
+				});
+				e.preventDefault();
+				
+			});
+		});
+	</script>
 </div>
 
 	<div id="popup-account-password-reset" class="popup popup-medium">

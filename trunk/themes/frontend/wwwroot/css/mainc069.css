@@ -2669,3 +2669,8 @@ h3 {
 .fa-2x {
   vertical-align: -6px;
 }
+
+/** SOFTDEVELOP ADD **/
+.password-error, .email-error {
+  color: #ea5e50;
+}

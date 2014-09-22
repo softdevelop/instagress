@@ -502,6 +502,8 @@ class Instagram extends CApplicationComponent {
       return $this->_accesstoken = $user->access_token;
     if ($data)
       return $this->_accesstoken = $data->access_token;
+
+    return $this->_accesstoken;
   }
 
   /**

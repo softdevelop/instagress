@@ -94,7 +94,7 @@ class User extends CActiveRecord {
      */
     public function validatePassword($password) 
     {
-        return CPasswordHelper::verifyPass($password, $this->password);
+        return CPasswordHelper::verifyPassword($password, $this->password);
     }
 
     /**
@@ -110,7 +110,7 @@ class User extends CActiveRecord {
 	protected function beforeSave()
 	{
 		if(parent::beforeSave()) {
-			$this->password = md5($this->password);
+			$this->password = $this->hashPassword($this->password);
 			return $this->password;
 		}
 		return false;
@@ -129,7 +129,8 @@ class User extends CActiveRecord {
     public function zeroUnique()
     {
         $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
-        
+        $user_parent = self::model()->findByPk(Yii::app()->user->id);
+
         if (!isset($user)) {            
             $this->save();
             if (Yii::app()->user->id)
@@ -137,13 +138,18 @@ class User extends CActiveRecord {
             return $this;
         } else {
 
-            if (Yii::app()->user->id && empty($user->child))
+            if (Yii::app()->user->id && !$this->checkExisting($user_parent, $user->id))
                 $this->saveChild($user->id);
                 
             return $user;
         }        
     }
 
+    /**
+     * save a child user of current user
+     * @param  int id of child user
+     * @return void
+     */
     public function saveChild($id_child = 0)
     {
         $user_child = new UserChild();
@@ -151,10 +157,42 @@ class User extends CActiveRecord {
         $user_child->user_child_id = $id_child;
         $user_child->save();
     }
+
+    /**
+     * retrieve id of instagram user
+     * @return int id 
+     */
     public static function getInstagramId()
     {
-
         $user = User::model()->findByPk(Yii::app()->user->id);
         return isset($user) ? $user->instagram_id : 0;
     }
+    /**
+     * check a instagram user then return true if it's existing in user_child table, else return false
+     * @param  object it's current user
+     * @param  int it's id's instagram user
+     * @return bool 
+     */
+    public function checkExisting($user, $id) {
+        if (is_array($user->child) && !empty($user->child)) {
+            foreach ($user->child as $key => $value) {
+                if ($value->user_child_id == $id)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    /* temporarily it is not be used
+    public function getInstagramInfor($user) {
+        $instagram = Yii::app()->instagram;
+        $instagram->setAccessToken($user->access_token);
+
+        $infor = array(
+                'likes' => $instagram->getUserLikes(),
+                'follows' => $instagram->getUserFollows()
+            );
+    }
+    */
+
 }

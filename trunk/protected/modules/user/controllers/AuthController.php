@@ -15,31 +15,22 @@ class AuthController extends FController
         {
             $model = new LoginForm;
 
-            // if it is ajax validation request
-            if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
-
             // collect user input data
             if (isset($_POST['LoginForm'])) {
                 $model->attributes = $_POST['LoginForm'];
-                $model->username = $_POST['LoginForm']['username'];
-                // validate user input and redirect to the previous page if valid
-                //var_dump($model->validate()); exit;
-                //$model->password=md5($model->password);
+                $model->email = $_POST['LoginForm']['email'];
                
-                if ($model->validate() && $model->login())
-                {
-                    $this->redirect('/site/index');
+                if ($model->validate() && $model->login()) {
+                    echo json_encode(array('errors' => ''));
+                } else {
+                    $errors = $model->getErrors();
+                    echo json_encode(array('errors' => $errors));
                 }
             }
-            // display the login form
-            $this->redirect('/site/index', array('model' => $model));
         }
         else
         {
-            $this->redirect('/site/index');
+            $this->redirect('/user/account');
         }
     }
     

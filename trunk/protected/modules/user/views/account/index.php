@@ -33,10 +33,7 @@
 				<div class="span4">
 					<div class="title-block">Add new account to your dashboard:</div>
 					<div class="-add-account">
-						<?php /*
-						<div class="add"><a href="/user/account/add">Add account</a></div>
-						*/ ?>
-						<button onclick="location.href='/user/account/add'" class="btn btn-plain btn-big btn-add-account btn-danger"
+						<button onclick="location.href='<?php echo $loginUrl ?>'" class="btn btn-plain btn-big btn-add-account btn-danger"
 								data-popup-open="#popup-login">Add account</button>
 					</div>
 				</div>
@@ -51,7 +48,7 @@
 		</div>
 	</div>
 
-	<?php if($models==null): ?>
+	<?php if($models == null): ?>
 		<div class="nocontent mt90">
 			No accounts added yet
 		</div>
@@ -71,86 +68,89 @@
 				</div>
 			</div>
 			<div class="row clearfix">
-				<?php foreach($models as $model): ?>
+				<?php 
+					foreach($models as $model): 
+						$user = User::model()->findByPk($model->user_child_id);
+				?>
+
 					<div class="span4">
-	<div class="account-entry nice-block mb20" data-user-id="53faed1f0a2d103173003083" data-username="softdevelopinc">
-		<div class="account-head">
-			<a href="/account/user/select/53faed1f0a2d103173003083" class="account-user">
-				<img src="/img/default-avatar.png" class="account-avatar" alt="softdevelopinc">
-				<span class="account-username"><?php echo $model->id; ?></span>
-			</a>
-			<div class="account-type">Instagram</div>
-			<div class="account-type-icon fa fa-instagram fa-lg"></div>
-		</div>
-		<hr>
-		<div class="stat-row">
-			<div class="stat-name">Activity:</div>
-			<div class="stat-value status status-stopped">
-				<span class="status-text">stopped</span>
-				<span class="stat-alert alert-success hidden" data-alert-class="success" data-hidden="true" data-toggle="tooltip" title="" style="display: none;" data-original-title="Activity automatically stopped:<br/>"></span>
-			</div>
-		</div>
-		<div class="stat-row">
-			<div class="stat-name">Time:</div>
-			<div class="stat-value payment-timer">
-				<span class="label-ok ">5 days 05:34</span>
-				<span class="label-over color-red hidden" style="display: none;">
-					Time is over
-				</span>
-			</div>
-		</div>
-		<hr>
-		<div class="stat-row">
-			<div class="stat-name">Likes:</div>
-			<div class="stat-value todo-count count-likes">2</div>
-		</div>
-		<div class="stat-row">
-			<div class="stat-name">Comments:</div>
-			<div class="stat-value todo-count count-comments">1</div>
-		</div>
-		<div class="stat-row">
-			<div class="stat-name">Follows:</div>
-			<div class="stat-value todo-count count-follows">1</div>
-		</div>
-		<div class="stat-row">
-			<div class="stat-name">Unfollows:</div>
-			<div class="stat-value todo-count count-unfollows">0</div>
-		</div>
-		
-		<hr>
-		<div class="stat-row mt10">
-			<div class="stat-name">Start time:</div>
-			<div class="stat-value time-start">Sep 11 2014 2:59 PM</div>
-		</div>
-		<div class="stat-row">
-			<div class="stat-name">Stop time:</div>
-			<div class="stat-value time-stop">Sep 11 2014 3:01 PM</div>
-		</div>
-		<hr>
-		<div class="mt10">
-			<button class="btn btn-plain btn-start-stop btn-start mr10
-				" data-loading-text="Start">Start</button>
-			<button class="btn btn-plain btn-start-stop btn-stop mr10
-				hidden" data-loading-text="Stop" style="display: none;">Stop</button>
+						<div class="account-entry nice-block mb20" data-user-id="53faed1f0a2d103173003083" data-username="softdevelopinc">
+							<div class="account-head">
+								<a href="/account/user/select/53faed1f0a2d103173003083" class="account-user">
+									<img src="/img/default-avatar.png" class="account-avatar" alt="softdevelopinc">
+									<span class="account-username"><?php echo $user->username; ?></span>
+								</a>
+								<div class="account-type">Instagram</div>
+								<div class="account-type-icon fa fa-instagram fa-lg"></div>
+							</div>
+							<hr>
+							<div class="stat-row">
+								<div class="stat-name">Activity:</div>
+								<div class="stat-value status status-stopped">
+									<span class="status-text">stopped</span>
+									<span class="stat-alert alert-success hidden" data-alert-class="success" data-hidden="true" data-toggle="tooltip" title="" style="display: none;" data-original-title="Activity automatically stopped:<br/>"></span>
+								</div>
+							</div>
+							<div class="stat-row">
+								<div class="stat-name">Time:</div>
+								<div class="stat-value payment-timer">
+									<span class="label-ok ">5 days 05:34</span>
+									<span class="label-over color-red hidden" style="display: none;">
+										Time is over
+									</span>
+								</div>
+							</div>
+							<hr>
+							<div class="stat-row">
+								<div class="stat-name">Likes:</div>
+								<div class="stat-value todo-count count-likes">2</div>
+							</div>
+							<div class="stat-row">
+								<div class="stat-name">Comments:</div>
+								<div class="stat-value todo-count count-comments">1</div>
+							</div>
+							<div class="stat-row">
+								<div class="stat-name">Follows:</div>
+								<div class="stat-value todo-count count-follows">1</div>
+							</div>
+							<div class="stat-row">
+								<div class="stat-name">Unfollows:</div>
+								<div class="stat-value todo-count count-unfollows">0</div>
+							</div>
+							
+							<hr>
+							<div class="stat-row mt10">
+								<div class="stat-name">Start time:</div>
+								<div class="stat-value time-start">Sep 11 2014 2:59 PM</div>
+							</div>
+							<div class="stat-row">
+								<div class="stat-name">Stop time:</div>
+								<div class="stat-value time-stop">Sep 11 2014 3:01 PM</div>
+							</div>
+							<hr>
+							<div class="mt10">
+								<button class="btn btn-plain btn-start-stop btn-start mr10
+									" data-loading-text="Start">Start</button>
+								<button class="btn btn-plain btn-start-stop btn-stop mr10
+									hidden" data-loading-text="Stop" style="display: none;">Stop</button>
 
-			<a href="/account/user/select/53faed1f0a2d103173003083" class="btn btn-plain mr10">Settings</a>
+								<a href="/account/user/select/53faed1f0a2d103173003083" class="btn btn-plain mr10">Settings</a>
 
-			<div class="btn-group pull-right">
-				<button type="button" class="btn btn-plain dropdown-toggle" data-toggle="dropdown">
-					More <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li><a href="/account/user/select/53faed1f0a2d103173003083?next=/profile">Profile</a></li>
-					<li><a href="/account/user/select/53faed1f0a2d103173003083?next=/likes">Likes</a></li>
-					<li class="divider"></li>
-					<li><a href="/account/user/remove/53faed1f0a2d103173003083">Log out</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-	<?php endforeach; ?>
-				
+								<div class="btn-group pull-right">
+									<button type="button" class="btn btn-plain dropdown-toggle" data-toggle="dropdown">
+										More <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="/account/user/select/53faed1f0a2d103173003083?next=/profile">Profile</a></li>
+										<li><a href="/account/user/select/53faed1f0a2d103173003083?next=/likes">Likes</a></li>
+										<li class="divider"></li>
+										<li><a href="/account/user/remove/53faed1f0a2d103173003083">Log out</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>	
 			</div>
 		</div>
 <?php endif; ?>
