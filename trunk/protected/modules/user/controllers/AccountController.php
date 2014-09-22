@@ -26,6 +26,7 @@ class AccountController extends FController
      */
     public function actionIndex()
     {
+
         $user =  User::model()->findByPk(Yii::app()->user->id);
         $model = $user->child();
 
@@ -81,17 +82,6 @@ class AccountController extends FController
         $this->render('edit', array(
             'model' => $model
         ));
-    }
-
-
-    public function actionAdd() {
-        
-        $instagram = Yii::app()->instagram;
-        $loginUrl = $instagram->getLoginUrl();
-
-        $this->render('//site/login', array(
-            'loginUrl'=>$loginUrl,
-        ));        
     }
 
 }

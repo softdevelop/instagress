@@ -33,11 +33,17 @@
 				<div class="span4">
 					<div class="title-block">Add new account to your dashboard:</div>
 					<div class="-add-account">
-						<button onclick="location.href='<?php echo $loginUrl ?>'" class="btn btn-plain btn-big btn-add-account btn-danger"
+						<button onclick="logout();" class="btn btn-plain btn-big btn-add-account btn-danger"
 								data-popup-open="#popup-login">Add account</button>
 					</div>
 				</div>
-
+				<script type="text/javascript">
+					function logout() {
+						$("body").append('<div style="display:none"><iframe class="logout_frame" src="https://instagram.com/accounts/logout/" width="0" height="0"></iframe></div>');
+						
+						window.location.href='<?php echo $loginUrl ?>';
+					}
+				</script>
 				<div class="span4">
 					<div class="title-block">Something interesting coming soon!</div>
 					<button class="btn btn-plain btn-big input-block-level" disabled>New features!</button>
@@ -45,7 +51,7 @@
 					
 				</div>
 			</div>
-		</div>
+		</div>	
 	</div>
 
 	<?php if($models == null): ?>
@@ -71,13 +77,15 @@
 				<?php 
 					foreach($models as $model): 
 						$user = User::model()->findByPk($model->user_child_id);
+					if (isset($user)) :
 				?>
 
 					<div class="span4">
 						<div class="account-entry nice-block mb20" data-user-id="53faed1f0a2d103173003083" data-username="softdevelopinc">
+							<img src="<?php echo $user->avatar;?>" width="50" style="float:left"/>
 							<div class="account-head">
-								<a href="/account/user/select/53faed1f0a2d103173003083" class="account-user">
-									<img src="/img/default-avatar.png" class="account-avatar" alt="softdevelopinc">
+								
+								<a href="#" class="account-avatar" alt="softdevelopinc">
 									<span class="account-username"><?php echo $user->username; ?></span>
 								</a>
 								<div class="account-type">Instagram</div>
@@ -150,7 +158,7 @@
 							</div>
 						</div>
 					</div>
-				<?php endforeach; ?>	
+				<?php endif;endforeach; ?>	
 			</div>
 		</div>
 <?php endif; ?>

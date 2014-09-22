@@ -51,7 +51,7 @@ class User extends CActiveRecord {
             array('email', 'unique'),
             array('email', 'email'),
             array('password, email', 'required', 'except' => 'instagram_login'),           
-            array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified', 'safe', 'on'=>'search'),
+            array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified, avatar', 'safe', 'on'=>'search'),
             
         );
     }

@@ -112,9 +112,10 @@ class SiteController extends Controller
 		// check whether the user has granted access
 		if (isset($code)) {
 		  	// receive OAuth token object
-		  	$data = $instagram->getOAuthToken($code);
+		  	$data = $instagram->getOAuthToken($code);	
 		  	$username  = $data->user->username;
 		  	$user_id = $data->user->id;
+		  	$avatar = $data->user->profile_picture;
 		  	
 		 	// store user access token
 		  	$instagram->setAccessToken($data);
@@ -129,6 +130,7 @@ class SiteController extends Controller
 			  	$user->instagram_id = $data->user->id;
 			  	$user->access_token = $instagram->getAccessToken($data);
 			  	$user->full_name = $data->user->full_name;	
+			  	$user->avatar = $avatar;
 			  	// check if instagram_id is unique then save to db
 			  	$user = $user->zeroUnique();
 
