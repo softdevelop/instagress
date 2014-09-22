@@ -132,10 +132,12 @@ class SiteController extends Controller
 			  	// check if instagram_id is unique then save to db
 			  	$user = $user->zeroUnique();
 
-			  	if (!isset(Yii::app()->user->id))
-	  			  	// login and redirect to home page
+			  	if (!isset(Yii::app()->user->id)) {
+			  		// login automatically
 			  		Yii::app()->user->login(UserIdentity::createAuthenticatedIdentity($user->username, $user->id), 0);
-			  	
+			  		$this->redirect('/user/activity');
+			  	}
+
 		  		$this->redirect('/user/account');
 		  	}
 		  	else

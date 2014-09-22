@@ -8,7 +8,7 @@
 			</a>
 			<ul class="menu account-actions pull-left">
 				<li class="name">
-					<a href="/account"><?php echo Yii::app()->user->name;?></a>
+					<a href="/user/account"><?php echo Yii::app()->user->name;?></a>
 				</li>
 
 				<li>
@@ -23,17 +23,17 @@
 				<ul class="menu account-pages pull-right">
 						
 						<li class="active">
-							<a href="/activity" >Activity</a>
+							<a href="/user/activity" >Activity</a>
 						</li>
 					
 						
 						<li class="">
-							<a href="/profile" >Profile</a>
+							<a href="/user/profile" >Profile</a>
 						</li>
 					
 						
 						<li class="">
-							<a href="/like" >Likes</a>
+							<a href="/user/likes" >Likes</a>
 						</li>
 					
 				</ul>

@@ -33,13 +33,10 @@ class AccountController extends FController
         $instagram = Yii::app()->instagram;
         $loginUrl = $instagram->getLoginUrl();
         
-        if (!$user->instagram_id)
-            $this->render('index', array(
-                "models" => $model,
-                'loginUrl' => $loginUrl
-            ));
-        else
-             $this->render('index1');
+        $this->render('index', array(
+            "models" => $model,
+            'loginUrl' => $loginUrl
+        ));
     }
 
     /**

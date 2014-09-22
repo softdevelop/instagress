@@ -33,8 +33,6 @@ class UserIdentity extends CUserIdentity
      */
     public function authenticate() 
     {
-        //$user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
-        
 		if (strpos($this->username,"@")) {
 			$user=User::model()->findByAttributes(array('email'=>$this->username));
 		} else {
@@ -47,10 +45,9 @@ class UserIdentity extends CUserIdentity
         else {
             $this->type      = $user->type;
             $this->_id       = $user->id;
-            $this->username     = $user->username;
-            $this->status    = $user->status;
             $this->setState('status', $user->status);
             $this->setState('username', $user->username);
+            $this->setState('email', $user->email);
 
             // Set role for admin
             if(!$this->type)

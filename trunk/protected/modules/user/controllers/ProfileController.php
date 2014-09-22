@@ -1,8 +1,6 @@
 <?php
-	class LikeController extends Controller
+	class ProfileController extends FController
 	{
-		// layout for controller
-		public $layout='column2';
 
 		/**
 		 * @return array action filters
@@ -34,20 +32,19 @@
 		 * show all like of specific user
 		 * @return array likes
 		 */
-		public function actionIndex()
+
+		public function actionIndex() 
 		{
 			$instagram = Yii::app()->instagram;
-			$likes = $instagram->getUserLikes(100000);
-			//echo "<pre>"; var_dump($likes);die('123');
+			$user = User::model()->findByPK(Yii::app()->user->id);
+
+			$user_info = $instagram->getUser($user->instagram_id);
+			$media = $instagram->getUserMedia($user->instagram_id);
+		
 			$this->render('index', array(
-				'result' => $likes	
+				'user_info' => @$user_info,
+				'medias' => @$media->data
 			));
-			
-		}
-		public function actionAutolike()
-		{
-			$instagram = Yii::app()->instagram;
-			$likes = $instagram->searchUser('khuongtran5');
-			echo "<pre>"; var_dump($likes->data);die('123');
 		}
 	}
+?>
