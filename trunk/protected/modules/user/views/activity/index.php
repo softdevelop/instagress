@@ -1,3 +1,78 @@
+<?php if ( $via_sign_in ) : ?>
+<div class="usermenu">
+	<div class="container">
+		<a href="/profile" class="avatar">
+			<img src="<?php echo $user->avatar; ?>" alt="<?php echo $user->username; ?>" width="80" height="80" />
+		</a>
+
+		<ul class="menu account-actions pull-left">
+			<li class="name">
+				<a href="/user/profile"><?php echo $user->username; ?></a>
+			</li>
+			<li>
+				<a href="#" class="btn-account-email" data-popup-open="#popup-account-email">
+					Set email
+				</a>
+			</li>
+			<li>
+				<a href="/user/auth/logout">Log out</a>
+			</li>	
+		</ul>
+
+		<ul class="menu account-pages pull-right">
+			<li class="active">
+				<a href="/user/activity">Activity</a>
+			</li>	
+			<li class="">
+				<a href="/user/profile">Profile</a>
+			</li>
+			<li class="">
+				<a href="/user/likes">Likes</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+<?php else : ?>
+<div class="usermenu">
+	<div class="container">
+		<a href="/profile" class="avatar">
+			<img src="<?php echo $user->avatar; ?>" alt="<?php echo $user->username; ?>" width="80" height="80" />
+		</a>
+
+		<ul class="menu account-actions pull-left">
+			<li class="name">
+				<a href="/user/profile"><?php echo $user->username; ?></a>
+			</li>
+				<li>
+					<a href="/user/account">Back to Dashboard</a>
+				</li>
+			<li>
+				<a href="#" class="btn-account-email" data-popup-open="#popup-account-email">
+					Set email
+				</a>
+			</li>
+			<li>
+				<a href="/user/account/remove/?instagram_id=<?php echo $instagram_id; ?>">Log out</a>
+			</li>	
+		</ul>
+
+		<ul class="menu account-pages pull-right">
+			<li class="active">
+				<a href="/user/activity/?instagram_id=<?php echo $instagram_id; ?>">Activity</a>
+			</li>	
+			<li class="">
+				<a href="/user/profile?instagram_id=<?php echo $instagram_id; ?>">Profile</a>
+			</li>
+			<li class="">
+				<a href="/user/likes?instagram_id=<?php echo $instagram_id; ?>">Likes</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<?php endif; ?>
 <section class="activity worker" data-status="stopped" data-demo="false">
 	<form action="" class="form-inline" method="post">
 		<div class="activity-head">
@@ -140,101 +215,89 @@
 
 							<div class="payment-cont ">
 								<div class="title-block">Buy time package:</div>
-
 								<div class="payment-slider-cont">
 									<div class="payment-slider" style="left: 0px;">
-										
+										<div class="item -item-ny">
+											<span class="num">3</span>
+											<span class="units">days</span>
+											<span class="price">
+												$1.99
+											</span>
+											<span class="savings">
+												$0.66 per day
+											</span>
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "3","instagram_id"=> $instagram_id ));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
+										</div>
+
+										<div class="item -item-ny">
+											<span class="num">10</span>
+											<span class="units">days</span>
+											<span class="price">
+												$4.99
+											</span>
+											<span class="savings">
+												$0.50 per day
+											</span>
 											
-											<div class="item -item-ny">
-												<span class="num">3</span>
-												<span class="units">days</span>
-												<span class="price">
-													$1.99
-												</span>
-												<span class="savings">
-													$0.66 per day
-												</span>
-												
-													<a href="/payment/3?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
-										
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "10","instagram_id"=> $instagram_id ));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
+
+										</div>
+
+										<div class="item -item-ny">
+											<span class="num">30</span>
+											<span class="units">days</span>
+											<span class="price">
+												$9.99
+											</span>
+											<span class="savings">
+												$0.33 per day
+											</span>
 											
-											<div class="item -item-ny">
-												<span class="num">10</span>
-												<span class="units">days</span>
-												<span class="price">
-													$4.99
-												</span>
-												<span class="savings">
-													$0.50 per day
-												</span>
-												
-													<a href="/payment/10?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
-										
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "30","instagram_id"=> $instagram_id ));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
 											
-											<div class="item -item-ny">
-												<span class="num">30</span>
-												<span class="units">days</span>
-												<span class="price">
-													$9.99
-												</span>
-												<span class="savings">
-													$0.33 per day
-												</span>
-												
-													<a href="/payment/30?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
-										
+										</div>
+									
+										<div class="item -item-ny">
+											<span class="num">90</span>
+											<span class="units">days</span>
+											<span class="price">
+												$24.99
+											</span>
+											<span class="savings">
+												$0.28 per day
+											</span>
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "90","instagram_id" => $instagram_id));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
 											
-											<div class="item -item-ny">
-												<span class="num">90</span>
-												<span class="units">days</span>
-												<span class="price">
-													$24.99
-												</span>
-												<span class="savings">
-													$0.28 per day
-												</span>
-												
-													<a href="/payment/90?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
+										</div>
+									
 										
+										<div class="item -item-ny">
+											<span class="num">180</span>
+											<span class="units">days</span>
+											<span class="price">
+												$44.99
+											</span>
+											<span class="savings">
+												$0.25 per day
+											</span>
 											
-											<div class="item -item-ny">
-												<span class="num">180</span>
-												<span class="units">days</span>
-												<span class="price">
-													$44.99
-												</span>
-												<span class="savings">
-													$0.25 per day
-												</span>
-												
-													<a href="/payment/180?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
-										
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "180","instagram_id"=> $instagram_id ));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
 											
-											<div class="item -item-ny">
-												<span class="num">360</span>
-												<span class="units">days</span>
-												<span class="price">
-													$79.99
-												</span>
-												<span class="savings">
-													$0.22 per day
-												</span>
-												
-													<a href="/payment/360?_=1411373746179" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>
-												
-											</div>
-										
+										</div>
+
+										<div class="item -item-ny">
+											<span class="num">360</span>
+											<span class="units">days</span>
+											<span class="price">
+												$79.99
+											</span>
+											<span class="savings">
+												$0.22 per day
+											</span>
 											
+												<a href="<?php echo Yii::app()->createUrl("user/payment/index",array("type_sale" => "360","instagram_id"=> $instagram_id ));?>" class="btn btn-plain btn-big btn-success btn-buy">Buy</a>	
+											
+										</div>		
 									</div>
 								</div>
 

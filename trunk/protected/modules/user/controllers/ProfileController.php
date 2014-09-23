@@ -33,10 +33,18 @@
 		 * @return array likes
 		 */
 
-		public function actionIndex() 
+		public function actionIndex($instagram_id = 0) 
 		{
 			$instagram = Yii::app()->instagram;
-			$user = User::model()->findByPK(Yii::app()->user->id);
+
+			if ( !$instagram_id && !Yii::app()->user->isGuest ) {
+				
+			}
+			else {
+				$user = User::model()->find('instagram_id=:instagram_id', array(
+						':instagram_id' => $instagram_id
+					));
+			}
 
 			$user_info = $instagram->getUser($user->instagram_id);
 			$media = $instagram->getUserMedia($user->instagram_id);

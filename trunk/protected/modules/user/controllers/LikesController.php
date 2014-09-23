@@ -32,20 +32,26 @@
 		 * show all like of specific user
 		 * @return array likes
 		 */
-		public function actionIndex()
+		public function actionIndex($instagram_id = 0)
 		{
+			if ( !$instagram_id && !Yii::app()->user->isGuest ) {
+				$user = User::model()->findByPk(Yii::app()->user->id);
+				$instagram_id = $user->instagram_id; 
+			}
+			else {
+				$user = User::model()->find('instagram_id=:instagram_id', array(
+						':instagram_id' => $instagram_id
+					));
+			}
+
 			$instagram = Yii::app()->instagram;
+			$instagram->setAccessToken($user->access_token);
+			
 			$likes = $instagram->getUserLikes(100000);
-			//echo "<pre>"; var_dump($likes);die('123');
 			$this->render('index', array(
 				'result' => $likes	
 			));
 			
 		}
-		public function actionAutolike()
-		{
-			$instagram = Yii::app()->instagram;
-			$likes = $instagram->searchUser('khuongtran5');
-			echo "<pre>"; var_dump($likes->data);die('123');
-		}
-	}
+
+	}	

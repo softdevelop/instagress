@@ -20,7 +20,7 @@ class AccountController extends FController
         );
     }
 	/**
-     * @author HOANGNGUYEN
+     * @author softdevelop
      * @action index
      * @description show the dashboard to manage  acount and company informations
      */
@@ -41,7 +41,7 @@ class AccountController extends FController
     }
 
     /**
-     * @author HOANGNGUYEN
+     * @author softdevelop
      * @action Edit
      * @description using to edit account information
      */

@@ -75,10 +75,11 @@ return array(
             'class' => 'ext.instagram.Instagram',
             '_apikey' => 'db64ea18e8394b63b6c4309250b4ea6a',
             '_apisecret' => '1e672be29aab4d2e88a79f3dc8919eee',
-            '_callbackurl' => 'http://'.$_SERVER['HTTP_HOST'].'/site/success'
-            //'_callbackurl' => 'http://instagress.me/site/success'
-               
-        )
+            '_callbackurl' => 'http://'.$_SERVER['HTTP_HOST'].'/site/success'            
+        ),
+        'paypal' => array(
+            'class' => 'ext.paypal.Process',        
+        ),
 		
     ),
     

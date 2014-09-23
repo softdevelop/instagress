@@ -9,8 +9,6 @@
 
 			<div class="row">
 				<div class="span4">
-					
-
 					<div class="-start-stop-cont">
 						<div class="title-block -mb10">Start/stop all accounts:</div>
 
@@ -85,7 +83,7 @@
 							<img src="<?php echo $user->avatar;?>" width="50" style="float:left"/>
 							<div class="account-head">
 								
-								<a href="#" class="account-avatar" alt="softdevelopinc">
+								<a href="/user/activity/?instagram_id=<?php echo $user->instagram_id;?>" class="account-avatar" alt="softdevelopinc">
 									<span class="account-username"><?php echo $user->username; ?></span>
 								</a>
 								<div class="account-type">Instagram</div>
