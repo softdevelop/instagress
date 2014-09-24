@@ -34,7 +34,6 @@ class User extends CActiveRecord {
      * @return string the associated database table name
      */
     public function tableName() 
-            
     {
         return '{{user}}';
     }
@@ -54,7 +53,7 @@ class User extends CActiveRecord {
             array('password, email', 'required', 'except' => 'instagram_login'),           
             array('access_token, full_name, instagram_id, username, email, password, hash, status, type, created, modified, avatar', 'safe', 'on'=>'search'),
             
-        );
+            );
     }
 
     /**
@@ -66,7 +65,7 @@ class User extends CActiveRecord {
         // class name for the relations automatically generated below.
         return array(
             'child' => array(self::HAS_MANY, 'UserChild', 'user_id')
-        );
+            );
     }
 
     /**
@@ -85,7 +84,7 @@ class User extends CActiveRecord {
             'type' => 'Type',
             'created' => 'Created',
             'modified' => 'Modified',
-        );
+            );
     }
 
     /**
@@ -108,43 +107,43 @@ class User extends CActiveRecord {
         return CPasswordHelper::hashPassword($password);
     }
 
-	protected function beforeSave()
-	{
-		if(parent::beforeSave()) {
-			$this->password = $this->hashPassword($this->password);
-			return $this->password;
-		}
-		return false;
-	}
-
-	public function behaviors() {
-		return array(
-			'CTimestampBehavior' => array(
-				'class' => 'zii.behaviors.CTimestampBehavior',
-				'createAttribute' => 'created',
-				'updateAttribute' => 'modified',
-			),
-		);
-	}
-
-    public function zeroUnique()
+    protected function beforeSave()
     {
-        $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
-        $user_parent = self::model()->findByPk(Yii::app()->user->id);
+      if(parent::beforeSave()) {
+       $this->password = $this->hashPassword($this->password);
+       return $this->password;
+   }
+   return false;
+}
 
-        if (!isset($user)) {            
-            $this->save();
-            if (Yii::app()->user->id)
-                $this->saveChild($this->id);
-            return $this;
-        } else {
+public function behaviors() {
+  return array(
+   'CTimestampBehavior' => array(
+    'class' => 'zii.behaviors.CTimestampBehavior',
+    'createAttribute' => 'created',
+    'updateAttribute' => 'modified',
+    ),
+   );
+}
 
-            if (Yii::app()->user->id && !$this->isExisting($user_parent, $user->id))
-                $this->saveChild($user->id);
-                
-            return $user;
-        }        
-    }
+public function zeroUnique()
+{
+    $user = self::model()->find('instagram_id=:instagram_id', array(':instagram_id' => $this->instagram_id));
+    $user_parent = self::model()->findByPk(Yii::app()->user->id);
+
+    if (!isset($user)) {            
+        $this->save();
+        if (Yii::app()->user->id)
+            $this->saveChild($this->id);
+        return $this;
+    } else {
+
+        if (Yii::app()->user->id && !$this->isExisting($user_parent, $user->id))
+            $this->saveChild($user->id);
+
+        return $user;
+    }        
+}
 
     /**
      * save a child user of current user
@@ -203,7 +202,7 @@ class User extends CActiveRecord {
     public static function instagramIdToId($instagram_id = 0) {
 
         $user = User::model()->find('instagram_id=:instagram_id', array(
-                ':instagram_id' => $instagram_id
+            ':instagram_id' => $instagram_id
             ));
 
         return isset($user) ? $user->id : 0;
