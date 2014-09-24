@@ -194,7 +194,11 @@ class User extends CActiveRecord {
             );
     }
     */
-   
+    /**
+     * this action use to retrieve id of user from instagram_id of this user
+     * @param  integer $instagram_id 
+     * @return integer id of user
+     */
     public static function instagramIdToId($instagram_id = 0) {
 
         $user = User::model()->find('instagram_id=:instagram_id', array(

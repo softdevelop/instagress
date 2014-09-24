@@ -28,14 +28,13 @@ class AccountController extends FController
     {
 
         $user =  User::model()->findByPk(Yii::app()->user->id);
-        $model = $user->child();
-
+        $models = $user->child();
         // initialize Instagram
         $instagram = Yii::app()->instagram;
         $loginUrl = $instagram->getLoginUrl();
         
         $this->render('index', array(
-            "models" => $model,
+            'models' => $models,
             'loginUrl' => $loginUrl
         ));
     }
@@ -44,7 +43,7 @@ class AccountController extends FController
 
         $user = User::model()->findByPk(Yii::app()->user->id);
         $user_child_id = User::instagramIdToId($instagram_id);
-        
+
         UserChild::model()->deleteAll('user_id=:user_id AND user_child_id=:user_child_id', array(
                 ':user_child_id' => $user_child_id,
                 ':user_id' => $user->id

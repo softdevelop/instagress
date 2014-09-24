@@ -6,7 +6,6 @@
 	<div class="account-index-head">
 		<div class="container">
 			<h1>Dashboard</h1>
-
 			<div class="row">
 				<div class="span4">
 					<div class="-start-stop-cont">
