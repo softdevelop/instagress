@@ -1,6 +1,6 @@
 <?php
 
-class AccountController extends FController
+class AccountController extends InstagramController
 {
     
     public function filters()

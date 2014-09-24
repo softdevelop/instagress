@@ -1,5 +1,5 @@
 <?php
-	class ProfileController extends FController
+	class ProfileController extends InstagramController
 	{
 
 		/**
@@ -35,23 +35,12 @@
 
 		public function actionIndex($instagram_id = 0) 
 		{
-			$instagram = Yii::app()->instagram;
 
-			if ( !$instagram_id && !Yii::app()->user->isGuest ) {
-				$user = User::model()->findByPk(Yii::app()->user->id);
-				$instagram_id = $user->instagram_id; 
-			}
-			else {
-				$user = User::model()->find('instagram_id=:instagram_id', array(
-						':instagram_id' => $instagram_id
-					));
-			}
-
-			$user_info = $instagram->getUser($user->instagram_id);
-			$media = $instagram->getUserMedia($user->instagram_id);
+			$user_info = $this->instagram->getUser($this->instagram_id);
+			$media = $this->instagram->getUserMedia($this->instagram_id);
 		
 			$this->render('index', array(
-				'user_info' => @$user_info,
+				'user_info' => @$user_info,    
 				'medias' => @$media->data
 			));
 		}

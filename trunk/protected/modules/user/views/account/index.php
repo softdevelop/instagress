@@ -73,17 +73,17 @@
 			<div class="row clearfix">
 				<?php 
 					foreach($models as $model): 
-						$user = User::model()->findByPk($model->user_child_id);
-					if (isset($user)) :
+						
+					if (isset($model->user)) :
 				?>
 
 					<div class="span4">
 						<div class="account-entry nice-block mb20" data-user-id="53faed1f0a2d103173003083" data-username="softdevelopinc">
-							<img src="<?php echo $user->avatar;?>" width="50" style="float:left"/>
+							<img src="<?php echo $model->user->avatar;?>" width="50" style="float:left"/>
 							<div class="account-head">
 								
-								<a href="/user/activity/?instagram_id=<?php echo $user->instagram_id;?>" class="account-avatar" alt="softdevelopinc">
-									<span class="account-username"><?php echo $user->username; ?></span>
+								<a href="/user/activity/?instagram_id=<?php echo $model->user->instagram_id;?>" class="account-avatar" alt="softdevelopinc">
+									<span class="account-username"><?php echo $model->user->username; ?></span>
 								</a>
 								<div class="account-type">Instagram</div>
 								<div class="account-type-icon fa fa-instagram fa-lg"></div>

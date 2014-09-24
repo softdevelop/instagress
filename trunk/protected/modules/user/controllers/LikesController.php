@@ -1,5 +1,5 @@
 <?php
-	class LikesController extends FController
+	class LikesController extends InstagramController
 	{
 
 		/**
@@ -34,20 +34,7 @@
 		 */
 		public function actionIndex($instagram_id = 0)
 		{
-			if ( !$instagram_id && !Yii::app()->user->isGuest ) {
-				$user = User::model()->findByPk(Yii::app()->user->id);
-				$instagram_id = $user->instagram_id; 
-			}
-			else {
-				$user = User::model()->find('instagram_id=:instagram_id', array(
-						':instagram_id' => $instagram_id
-					));
-			}
-
-			$instagram = Yii::app()->instagram;
-			$instagram->setAccessToken($user->access_token);
-			
-			$likes = $instagram->getUserLikes(100000);
+			$likes = $this->instagram->getUserLikes(100000);
 			$this->render('index', array(
 				'result' => $likes	
 			));
