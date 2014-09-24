@@ -1,9 +1,6 @@
 <?php
-	class ActivityController extends FController {
-
-	 	// set layout for this controller
-   	 	public $layout = "//layouts/main_activity";
-
+	class ActivityController extends FController 
+	{
 		public function actionIndex( $instagram_id = 0 ) {
 
 			if ( !$instagram_id && !Yii::app()->user->isGuest ) {

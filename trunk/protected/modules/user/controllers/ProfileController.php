@@ -35,7 +35,6 @@
 
 		public function actionIndex($instagram_id = 0) 
 		{
-
 			$user_info = $this->instagram->getUser($this->instagram_id);
 			$media = $this->instagram->getUserMedia($this->instagram_id);
 		

@@ -17,7 +17,6 @@
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/css/commonc069.css?v=114" media="all"/>
 	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/css/mainc069.css?v=114" media="all"/>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl . WWWROOT_FRONTEND; ?>/js/jquery-1.11.0.js"></script>
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
 <body>
@@ -86,7 +85,10 @@
 
 		</div>
 	</header>
-	<?php include($_SERVER['DOCUMENT_ROOT']."/themes/frontend/views/site/menuTop.php"); ?>
+	<?php // include($_SERVER['DOCUMENT_ROOT']."/themes/frontend/views/site/menuTop.php"); ?>
+	<?php
+		$this->widget('UserMenu');
+	?>
 	<?php echo $content; ?>
 
 	<footer>

@@ -5,6 +5,7 @@ class User extends CActiveRecord {
 	const UPGRADED = 1;
 	const FREE = 2;
 	public $repassword;
+
     /**
      * The followings are the available columns in table 'tbl_user':
      * @var integer $id
@@ -208,4 +209,26 @@ class User extends CActiveRecord {
         return isset($user) ? $user->id : 0;
     } 
 
+    /**
+     * check a user that is instagram user or not
+     * @param  integer $id 
+     * @return boolean
+     */
+    public function isInstagram($id = 0) 
+    {
+        $user = self::model()->findByPk((int) $id);
+        if (isset($user) && isset($user->instagram_id)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function getCurrentUser() 
+    {
+        if (isset($_GET['instagram_id']) && !Yii::app()->user->isGuest) {
+            return User::model()->find('instagram_id=:instagram_id', array(':instagram_id' => (int) $_GET['instagram_id']));
+        } elseif (!Yii::app()->user->isGuest) {
+            return User::model()->findByPk(Yii::app()->user->id);
+        }
+    }
 }

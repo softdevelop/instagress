@@ -6,12 +6,15 @@ class UserMenu extends CPortlet
 {
 	public function init()
 	{
-		$this->title=CHtml::encode(Yii::app()->user->name);
 		parent::init();
 	}
 
 	protected function renderContent()
 	{
-		$this->render('userMenu');
+		$this->render('userMenu', array(
+				'isInstagramUser' => User::model()->isInstagram(Yii::app()->user->id),
+				'user' => User::getCurrentUser()
+			));
 	}
+
 }
