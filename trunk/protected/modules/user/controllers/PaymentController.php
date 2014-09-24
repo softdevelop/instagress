@@ -38,7 +38,7 @@
 		    $paymentInfo["type"] = "Sale";
 		    $paymentInfo["currency"] = "USD";
 		    $paymentInfo["item_name"] = "example product";
-		    $paymentInfo["returnUrl"] = "http://" . $_SERVER['HTTP_HOST'] . "/user/payment/success/?total=" . $amount;
+		    $paymentInfo["returnUrl"] = "http://" . $_SERVER['HTTP_HOST'] . "/user/payment/success/?total=" . $amount . "&instagram_id=" . $instagram_id . "&type_sale=" . $type_sale;
 		    $paymentInfo["cancelUrl"] = "http://" . $_SERVER['HTTP_HOST'] . "/user/payment/cancel";
 		    $result = $this->paypal->process($paymentInfo, "SetExpressCheckout");
 		    $ack = strtoupper($result["ACK"]);
@@ -62,7 +62,7 @@
 		 * this action will runs when payment was done
 		 * @return avoid
 		 */
-		public function actionSuccess( $total ) {
+		public function actionSuccess( $total, $instagram_id, $type_sale ) {
 
 			$token = $_GET['token'];
 		    $PAYERID = $_GET["PayerID"];
@@ -91,7 +91,12 @@
 		    }
 
 		    // handle save db here 
-		    // keke
+		    $user = User::model()->find('instagram_id=:instagram_id', array(
+		    		':instagram_id' => $instagram_id
+		    	));
+		    $user->expired_date = $user->expired_date + time() + $type_sale*24*60*60;
+		    $user->update();
+		    $this->redirect('/user/account');
 		}
 
 		/**

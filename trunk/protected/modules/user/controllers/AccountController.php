@@ -40,48 +40,18 @@ class AccountController extends FController
         ));
     }
 
-    /**
-     * @author softdevelop
-     * @action Edit
-     * @description using to edit account information
-     */
-    public function actionEdit()
-    {
-        $model = User::model()->findByPk(Yii::app()->user->id);
-        $model->password = '';
-        $model->repassword = '';
-        if (isset($_POST['User'])) 
-        {
-            $model->attributes = $_POST['User'];
-            $model->modified = date('Y-m-d H:i:s');
-            if($model->save(true, array('firstname', 'lastname', 'email', 'modified')))
-            {
-                
-                if(isset($_POST['User']['password']))
-                {
-                    $model->password = $_POST['User']['password'];
-                    $model->repassword = $_POST['User']['repassword'];
-                    if($model->validate(array('password')))
-                    {
-                        $model->update();
-                    }
-                    else
-                    {
-                        $model->password = '';
-                        $model->repassword = '';
-                        $this->render('edit', array(
-                            'model' => $model
-                        ));
-                        exit();
-                    }
-                }
-                Yii::app()->user->setFlash('success', 'Your account was changed successfull');
-                $this->redirect('/user/account');
-            }
-        } 
-        $this->render('edit', array(
-            'model' => $model
-        ));
+    public function actionRemove($instagram_id = 0) {
+
+        $user = User::model()->findByPk(Yii::app()->user->id);
+        $user_child_id = User::instagramIdToId($instagram_id);
+        
+        UserChild::model()->deleteAll('user_id=:user_id AND user_child_id=:user_child_id', array(
+                ':user_child_id' => $user_child_id,
+                ':user_id' => $user->id
+            ));
+        $this->redirect('/user/account');
+        
+
     }
 
 }

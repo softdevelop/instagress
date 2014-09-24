@@ -38,7 +38,8 @@
 			$instagram = Yii::app()->instagram;
 
 			if ( !$instagram_id && !Yii::app()->user->isGuest ) {
-				
+				$user = User::model()->findByPk(Yii::app()->user->id);
+				$instagram_id = $user->instagram_id; 
 			}
 			else {
 				$user = User::model()->find('instagram_id=:instagram_id', array(

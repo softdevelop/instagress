@@ -138,7 +138,7 @@ class User extends CActiveRecord {
             return $this;
         } else {
 
-            if (Yii::app()->user->id && !$this->checkExisting($user_parent, $user->id))
+            if (Yii::app()->user->id && !$this->isExisting($user_parent, $user->id))
                 $this->saveChild($user->id);
                 
             return $user;
@@ -173,7 +173,7 @@ class User extends CActiveRecord {
      * @param  int it's id's instagram user
      * @return bool 
      */
-    public function checkExisting($user, $id) {
+    public function isExisting($user, $id) {
         if (is_array($user->child) && !empty($user->child)) {
             foreach ($user->child as $key => $value) {
                 if ($value->user_child_id == $id)
@@ -194,5 +194,14 @@ class User extends CActiveRecord {
             );
     }
     */
+   
+    public static function instagramIdToId($instagram_id = 0) {
+
+        $user = User::model()->find('instagram_id=:instagram_id', array(
+                ':instagram_id' => $instagram_id
+            ));
+
+        return isset($user) ? $user->id : 0;
+    } 
 
 }
