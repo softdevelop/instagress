@@ -11,7 +11,7 @@
 		<div class="alert alert-success"></div>
 	</div>
 	<form action="/user/auth/login" id="login-form" class="form-horizontal mb0" method="post">
-		<div class="control-group field-wrap" data-field="username">
+		<!-- <div class="control-group field-wrap" data-field="username">
 			<input type="text" name="LoginForm[username]" id="inpLoginUsername"
 				   class="input-block-level input-icon input-icon-username"
 				   placeholder="Username" autofocus/>
@@ -34,7 +34,7 @@
 			By signing in, you agree to the
 			<a href="/site/terms" target="_blank">Terms of Service</a>.
 		</div>
-		
+		 -->
 
 		
 		<hr/>
