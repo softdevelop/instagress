@@ -73,4 +73,39 @@ class LoginForm extends CFormModel
 		else
 			return false;
 	}
+
+	/**
+	 * only administrator login
+	 * @return [type] [description]
+	 */
+	public function loginAdmin()
+	{
+		if($this->_identity===null)
+        {
+            $this->_identity=new UserIdentity($this->username,$this->password);
+            $this->_identity->authenticate();
+        }
+        if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+        {
+            if($this->_identity->type)
+            {
+            	$this->addError('','You have no permission');
+            	return false;
+            }
+            
+            $duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+            Yii::app()->adminUser->login($this->_identity,$duration);
+            return true;
+        }
+        elseif($this->_identity->errorCode === UserIdentity::ERROR_USERNAME_INVALID)
+        {
+            $this->addError('email', 'I’m sorry but I can’t find your email in our database');
+        }
+        else
+        {
+            $this->addError('password', 'Password is not invail');
+        }
+        
+            return false;
+	}
 }

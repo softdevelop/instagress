@@ -12,16 +12,6 @@
 			'value' => '$data->id',
 		),
 		array(
-			'name'  => 'firstname',
-			'type'  => 'raw',
-			'value' => '$data->firstname'		
-		),
-		array(
-			'name'  => 'lastname',
-			'type'  => 'raw',
-			'value' => '$data->lastname'		
-		),
-		array(
 			'name'  => 'email',
 			'type'  => 'raw',
 			'value' => '$data->email'		
